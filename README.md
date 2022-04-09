@@ -6,6 +6,40 @@
 
 ![img-observablehq-main-page_michael_hladky](https://user-images.githubusercontent.com/10064416/162594795-95c9ea5f-a61c-444c-a014-b40847dead89.PNG)
 
+## TL;DR
+
+```css
+/* too-bar (c1) */
+nav.bb {
+  height: 55px;
+  contain: strict;
+  content-visibility:auto;
+  contain-intrinsic-size: 55px;
+}
+
+/* all sections (c2) */
+#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2 {
+  contain: content;
+  content-visibility: auto;
+  contain-intrinsic-size: 300px;
+}
+
+/* cards */
+'.jsx-1511261573 > .jsx-1511261573 > .jsx-1511261573' {
+  contain: strict;
+  content-visibility: auto;
+  contain-intrinsic-size: 200px;
+}
+
+/* video */
+.mw-section video {
+  background-image: url(https://static.observableusercontent.com/thumbnail/820c1ce779bde2347e128aab81a550e16f95126993729412583ac517dd0c2c1f.jpg);
+/* just to demonstrate impact visually 
+background-color: red;
+*/
+```
+
+
 ## Visual Areas
 
 ![img-observablehq-main-page-areas_michael_hladky](https://user-images.githubusercontent.com/10064416/162594799-2cff5cb3-7ead-46cd-aca7-19d55df3646d.PNG)
@@ -90,7 +124,6 @@ document.title= eager+ ' of ' + imgs.length + ' imgs eager (LCP included)';
 
 > 82 of 137 imgs eager (LCP included)
  
-
 Let's give it a quick try:
 
 ```javascript
@@ -103,7 +136,6 @@ document.title= eager+ ' of ' + imgs.length + ' imgs eager (LCP included)';
 
 At pageload `31` images are loaded, after all images are loaded lazy `13` are loaded.
  
-
 ### `contain` and `content-visibility`
 
 I start with the quick wins first and worked my way through the previously defined sections.
@@ -129,7 +161,32 @@ We can try if their content is staiy stable if we apply `content-visibility:auto
 
 Looks good! Recalculate styles and redom shows pretty nice improvements already.
 
-### View Port and LCP Detailled Look
+**Section - Examples**
+
+One of the interesting sections is the examples section. 
+There we have 2 carousels containing main cards with images.   
+
+`document.querySelectorAll('.jsx-1511261573 > .jsx-1511261573 > .jsx-1511261573')` 
+
+[section img]()
+
+Their position is animated with translateX which is already pretty good. As an side effect the psint area is huge.  
+
+[LAYERS]()
+
+Here we can apply again `contain' and `content-visibility`. After we applied the styles we can see in the layers panel that the paint area is now limited to the cards visible in the viewport or obscured. Another check in the layers panel shows us the affected nodes.
+
+[LAYERS]()
+
+
+**Section - Usage**
+
+A quick look with the paintflash feature shows that again they did quite a good job, transition is used to run the dimensional changes.
+As a small improvement we could add `will-change` to the affected elements. 
+
+[PAINT FLASH]()
+
+## View Port and LCP Detailled Look
 
 **Section - Hero**
 
@@ -171,53 +228,4 @@ background-color: red;
 }
 ```
 
-**Section - Examples**
 
-One of the interesting sections is the examples section. 
-There we have 2 carousels containing main cards with images.   
-
-`document.querySelectorAll('.jsx-1511261573 > .jsx-1511261573 > .jsx-1511261573')` 
-
-[section img]()
-
-Their position is animated with translateX which is already pretty good. As an side effect the psint area is huge.  
-
-[LAYERS]()
-
-Here we can apply again `contain' and `content-visibility`. After we applied the styles we can see in the layers panel that the paint area is now limited to the cards visible in the viewport or obscured. Another check in the layers panel shows us the affected nodes.
-
-[LAYERS]()
-
-
-**Section - Usage**
-
-A quick look with the paintflash feature shows that again they did quite a good job, transition is used to run the dimensional changes.
-As a small improvement we could add `will-change` to the affected elements. 
-
-```css
-
-/* too-bar (c1) */
-nav.bb {
-  height: 55px;
-  contain: strict;
-  content-visibility:auto;
-  contain-intrinsic-size: 55px;
-}
-
-/* all sections (c2) */
-#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2 {
-  contain: content;
-  content-visibility: auto;
-  contain-intrinsic-size: 300px;
-}
-
-/* cards */
-'.jsx-1511261573 > .jsx-1511261573 > .jsx-1511261573' {
-  contain: strict;
-  content-visibility: auto;
-  contain-intrinsic-size: 200px;
-}
-
-
-
-```
