@@ -38,10 +38,10 @@ Following devices where erspected:
 [Page view]()
 
 **Areas:**
-- tool-bar `document.querySelector('nav.bb')`
-- section `document.querySelectorAll('#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2')`
-  - hero-section `document.querySelector('#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2')`
-- footer `document.querySelector('footer')`
+- tool-bar - `document.querySelector('nav.bb')`
+- section - `document.querySelectorAll('#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2')`
+  - hero-section - `document.querySelector('#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2')`
+- footer - `document.querySelector('footer')`
 
 ## CSS only improvements
 
