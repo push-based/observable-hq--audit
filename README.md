@@ -41,6 +41,7 @@ Following devices where erspected:
 - tool-bar - `document.querySelector('nav.bb')`
 - section - `document.querySelectorAll('#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2')`
   - hero-section - `document.querySelector('#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2')`
+    - video (LCP) - document.querySelectorAll('.mw-section video') 
 - footer - `document.querySelector('footer')`
 
 ## CSS only improvements
@@ -88,11 +89,13 @@ The tool-bar is my first candidate. A clear case for `contain:strict` as (even i
 
 It will be off screen when we scroll so we can consider `content-visibility` and `contain-intrinsic-size`. 
 
-The interactions with tool-bar elements did not show any animated changes nor dropdowns. The only thing interesting was, when I clicked the searchbox a full bage overlay showed up.
-
 I don't measure as I don't asume any big impact.
 
-**Section**
+The interactions with tool-bar elements did not show any animated changes nor dropdowns. The only thing interesting was, when I clicked the searchbox a full bage overlay showed up. At the beginning I did not see it but after some interaction I spotted a flicker in the tiny images of the headline. 
+
+Let's make a note for the hero section to analyze this.
+
+**Sections**
 
 The majority of the pages content is organized in sections with mid size DOM size. In general the site is media heavy but there are some specific sections containing more relevant animation or media we could have a look at. 
 
@@ -100,7 +103,68 @@ We can try if their content is staiy stable if we apply `content-visibility:auto
 
 Looks good! Recalculate styles and redom shows pretty nice improvements already.
 
+**Section - Hero**
 
+The hero section maintains a littla bit of fancy text and a video. 
+
+From the toolbar review I have a note regards a flicker in the tiny images of the headline on the right. When openin and closing the search overlay I realized that some images are constantly loaded. 
+2 images visible in the small bubbles in the headline.
+
+[TOOLBAR IMG FETCH]()
+
+A second look in conparison to the rest of the resources showed that these 2 images are with far distance the biggest on the page. 🤣
+[TOOLBAR IMG Net size]()
+
+Due to the usage of CSS and the background-image attribute the priority is always `high` so there is no chance our LCP content gets first. 
+[TOOLBAR IMG Net prio]()
+
+I assume it it triggeren by reacts CD and the usage of css variables as background image but iI'm not sure ATM. 
+
+For now I will keep it with a note to research later...
+
+The video tag on the right is streamed so the first image can get displayes early on.
+
+```html
+<video autoplay="" loop="" playsinline="" class="w-100" style="margin-bottom: -4px;">
+  <source src="https://static.observablehq.com/assets/videos/Notebook-Demo.mov" type="video/mp4">
+</video>
+```
+ Here we can apply our finding from above to our advantage. We can use a image and set it as background image of the video tag. 
+ As this is our LCP and the CSS rule will fetch it with high priority we could create an optimized image for the first paint to improve LCP.
+
+In the snippet below I just used an image from the cards to showcase the effect. For a visual feedback you can add a back ground color to check the impact visually.
+ 
+```css
+.mw-section video {
+  background-image: url(https://static.observableusercontent.com/thumbnail/820c1ce779bde2347e128aab81a550e16f95126993729412583ac517dd0c2c1f.jpg);
+/* just to demonstrate impact visually 
+background-color: red;
+*/
+}
+```
+
+**Section - Examples**
+
+One of the interesting sections is the examples section. 
+There we have 2 carousels containing main cards with images.   
+
+`document.querySelectorAll('.jsx-1511261573 > .jsx-1511261573 > .jsx-1511261573')` 
+
+[section img]()
+
+Their position is animated with translateX which is already pretty good. As an side effect the psint area is huge.  
+
+[LAYERS]()
+
+Here we can apply again `contain' and `content-visibility`. After we applied the styles we can see in the layers panel that the paint area is now limited to the cards visible in the viewport or obscured. Another check in the layers panel shows us the affected nodes.
+
+[LAYERS]()
+
+
+**Section - Usage**
+
+A quick look with the paintflash feature shows that again they did quite a good job, transition is used to run the dimensional changes.
+As a small improvement we could add `will-change` to the affected elements. 
 
 ```css
 
@@ -118,4 +182,14 @@ nav.bb {
   content-visibility: auto;
   contain-intrinsic-size: 300px;
 }
+
+/* cards */
+'.jsx-1511261573 > .jsx-1511261573 > .jsx-1511261573' {
+  contain: strict;
+  content-visibility: auto;
+  contain-intrinsic-size: 200px;
+}
+
+
+
 ```
