@@ -32,12 +32,29 @@ Following measures where taken:
 - Page re-calculate (transformZ 0.1 on body)
 - Page idle (after page is fully loaded some seconds of no interaction)
 
-Following devices where erspected:
-- Desktop
+**Page Refresh**
 
-### Page refresh
+![img-observablehq-refresh_before](https://user-images.githubusercontent.com/10064416/162595144-c52a5612-b9ca-4457-836d-e586b0b7659f.PNG)
 
-### Findings
+**Page Re-draw DOM**
+
+![img-observablehq-redom_before](https://user-images.githubusercontent.com/10064416/162595154-dd7da7bd-872e-436e-923b-f382e802dadc.PNG)
+
+**Page Recalculate**
+
+![img-observablehq-recalculate_before](https://user-images.githubusercontent.com/10064416/162595151-8eee0c6f-0896-4993-b0df-7b3bbc6f690f.PNG)
+
+**Page Scroll**
+
+![img-observablehq-scroll-before](https://user-images.githubusercontent.com/10064416/162595147-77b4b43e-75ba-4c37-adb1-3f9eda1b90d6.PNG)
+
+**Page Idle**
+
+![img-observablehq-idle_before](https://user-images.githubusercontent.com/10064416/162595146-a932c466-4b37-4b71-b06e-5fdb032560d9.PNG)
+
+## Audit Thought Process
+
+### First Quick Findings
 
 **Spcipting:**
 - script dirven animations
@@ -45,15 +62,14 @@ Following devices where erspected:
 
 **DOM & Styles:**
 - animation noise
-- styled components triggering refetch of resources
+- styled components triggering refetch of resources (check in hero section)
 
 **Media:**
 - no UI facade for hero GIF
-- no lazy loading
+- lazy loading options present
 - no compression
-- wrong dimensions 
+- wrong dimensions
 
-## Audit Thought Process
 
 After my first impression of the flames and the fact that I **can't touch code nor assets** I decided to focus first on the things I can **easily test and measure**.
 This includes runtime measures of DOM and CSS changes.
