@@ -57,7 +57,9 @@ Let's quickly check the images without loading lazy on the page...
 ```javascript
 const imgs = document.querySelectorAll('img');
 const eager = Array.from(imgs).map(i => i.getAttribute('loading')).filter(l => !l).length;
+
 console.log(eager+ ' of ' + imgs.length + ' imgs eager (LCP included)');
+document.title= eager+ ' of ' + imgs.length + ' imgs eager (LCP included)';
 ```
 
 > 82 of 137 imgs eager (LCP included)
