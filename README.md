@@ -63,7 +63,20 @@ document.title= eager+ ' of ' + imgs.length + ' imgs eager (LCP included)';
 ```
 
 > 82 of 137 imgs eager (LCP included)
+ 
 
+Let's give it a quick try:
+
+```javascript
+const imgs = document.querySelectorAll('img');
+const eager = Array.from(imgs).forEach(i => i.setAttribute('loading', 'lazy);
+
+console.log(eager+ ' of ' + imgs.length + ' imgs eager (LCP included)');
+document.title= eager+ ' of ' + imgs.length + ' imgs eager (LCP included)';
+```
+
+At pageload `31` images are loaded, after all images are loaded lazy `13` are loaded.
+ 
 
 ### `contain` and `content-visibility`
 
