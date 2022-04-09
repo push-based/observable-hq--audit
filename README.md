@@ -1,6 +1,26 @@
 # Observable HQ - Performance Audit
 
+![img-observablehq-audit-cover_michael_hladky](https://user-images.githubusercontent.com/10064416/162594786-47aa6668-efb6-4d5e-aef1-f557ed6dac76.PNG)
+
 ---
+
+![img-observablehq-main-page_michael_hladky](https://user-images.githubusercontent.com/10064416/162594795-95c9ea5f-a61c-444c-a014-b40847dead89.PNG)
+
+## Visual Areas
+
+![img-observablehq-main-page-areas_michael_hladky](https://user-images.githubusercontent.com/10064416/162594799-2cff5cb3-7ead-46cd-aca7-19d55df3646d.PNG)
+
+
+**Areas:**
+- tool-bar - `document.querySelector('nav.bb')`
+- section - `document.querySelectorAll('#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2')`
+  - hero-section - `document.querySelector('#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2')`
+    - video (LCP) - document.querySelectorAll('.mw-section video') 
+- footer - `document.querySelector('footer')`
+
+![img-observablehq-main-page-areas-detail-1_michael_hladky](https://user-images.githubusercontent.com/10064416/162594810-79308250-4d5e-4371-87e8-20caaf10d192.PNG)
+
+![img-observablehq-main-page-areas-detail-2_michael_hladky](https://user-images.githubusercontent.com/10064416/162594812-715e170d-e891-4c53-a59c-ad76fbd9c273.PNG)
 
 ## Initial state
 
@@ -33,18 +53,7 @@ Following devices where erspected:
 - no compression
 - wrong dimensions 
 
-## Visual Areas
-
-[Page view]()
-
-**Areas:**
-- tool-bar - `document.querySelector('nav.bb')`
-- section - `document.querySelectorAll('#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2')`
-  - hero-section - `document.querySelector('#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2')`
-    - video (LCP) - document.querySelectorAll('.mw-section video') 
-- footer - `document.querySelector('footer')`
-
-## CSS only improvements
+## Audit Thought Process
 
 After my first impression of the flames and the fact that I **can't touch code nor assets** I decided to focus first on the things I can **easily test and measure**.
 This includes runtime measures of DOM and CSS changes.
@@ -97,11 +106,14 @@ Let's make a note for the hero section to analyze this.
 
 **Sections**
 
+
 The majority of the pages content is organized in sections with mid size DOM size. In general the site is media heavy but there are some specific sections containing more relevant animation or media we could have a look at. 
 
 We can try if their content is staiy stable if we apply `content-visibility:auto`... It is quite a hick up in the scrollbar, an intrinsic size of `300px` makes it way better. Now a quick check on mobile... It's, at least with touchpad and laptop noticable that the scroll is a bit janky, but lets keep ti for now and take a measure.
 
 Looks good! Recalculate styles and redom shows pretty nice improvements already.
+
+### View Port and LCP Detailled Look
 
 **Section - Hero**
 
