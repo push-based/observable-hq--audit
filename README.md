@@ -30,13 +30,18 @@ nav.bb {
 img, video {
   contain: content;
   content-visibility: auto;
+}
+
+/* carousels */
+.jsx-1511261573 > .jsx-1511261573 > .jsx-1511261573 {
+  contain: strict;
+  content-visibility: auto;
   contain-intrinsic-size: 200px;
 }
 
-
 /* cards */
-.jsx-1511261573 > .jsx-1511261573 > .jsx-1511261573 {
-  contain: strict;
+.carousel-notebook {
+  contain: content;
   content-visibility: auto;
   contain-intrinsic-size: 200px;
 }
@@ -147,9 +152,9 @@ console.log(eager+ ' of ' + imgs.length + ' imgs eager (LCP included)');
 document.title= eager+ ' of ' + imgs.length + ' imgs eager (LCP included)';
 ```
 
-> 82 of 137 imgs eager (LCP included)
+> 82 of 137 imgs eager (LCP included) 
  
-Let's give it a quick try:
+Let's give it a quick try 😁
 
 ```javascript
 const imgs = document.querySelectorAll('img');
@@ -196,14 +201,24 @@ Looks good! Recalculate styles and redom shows pretty nice improvements already.
 One of the interesting sections is the examples section. 
 There we have 2 carousels containing main cards with images.   
 
-Their position is animated with translateX which is already pretty good. As an side effect the psint area is huge.  
+Their position is animated with translateX which is already pretty good. As an side effect the paint area is huge.  
 
 ![img-observablehq-section-carousel_before_michael-hladky](https://user-images.githubusercontent.com/10064416/162595420-22e49b9e-2023-47f4-ad03-f648d10f3b88.PNG)
 
-Here we can apply again `contain` and `content-visibility`. 
+Here we can try to apply `contain` and `content-visibility`. Especially `content-visibility` will have the impact.  
 
 ```css
 img, video {
+  contain: content;
+  content-visibility: auto;
+}
+```
+
+As this most problbby will have an impact on other images and paint heave assets too, lets add another rule for all `img` and `video` tags: 
+
+```css
+.carousel-notebook {
+  border: 1px solid red;
   contain: content;
   content-visibility: auto;
   contain-intrinsic-size: 200px;
@@ -213,7 +228,6 @@ img, video {
 After we applied the styles we can see in the layers panel that the paint area is now limited to the cards visible in the viewport or obscured. Another check in the layers panel shows us the affected nodes.
 
 ![img-observablehq-section-carousel_after_michael-hladky](https://user-images.githubusercontent.com/10064416/162595425-17c5a007-e364-47a5-a926-68c32de85b8b.PNG)
-
 
 **Section - Usage**
 
@@ -336,5 +350,11 @@ In the snippet below I just used an image from the cards to showcase the effect.
 background-color: red;
 }
 ```
+
+### Hero section avatar images
+
+I'm back at the image flicker haha. This war gripping my attention from the beginning but I was not sure if it has enough potential to dig in deeper so early on. 
+Now I pretty satisfied with my first findings and can have **finally** a closer look here 
+https://avatars.observableusercontent.com/avatar/4b4606a6f4b81cdc32e2a3271381da5fad8ffdbd1089b14e89ebcfd1c98a11c0?s=128
 
 
