@@ -223,15 +223,6 @@ I can access all selected elements like this `document.querySelectorAll('.jsx-6e
 
 In can start now to fiddle around, but first I have to stop all the background noise so I can focus on the one animation.
 
-- tool-bar - `document.querySelector('nav.bb')`
-- section - `document.querySelectorAll('#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2')`
-  - hero-section - `document.querySelector('#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2')`
-    - video (LCP) - document.querySelectorAll('.mw-section video') 
-  - carousel - `document.querySelectorAll('.jsx-1511261573 > .jsx-1511261573 > .jsx-1511261573')`
-  - DOM animation - `document.querySelector('.jsx-6e9c885e3fde48d5')`
-- footer - `document.querySelector('footer')`
-
-
 ```javascript
 // hero video
 document.querySelector('#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2').remove();
@@ -246,6 +237,42 @@ As the dom changes and it's hard to make changes directly on the element in the 
 Array.from(document.querySelectorAll('.jsx-6e9c885e3fde48d5 > div')).forEach(i => i.classList.add('animated-elem'));
 ```
 
+Ok, unfortunately my default approach does not work, the class attribute is controled by javascript and I have to go with a `data` attribute:
+
+```javascript
+Array.from(document.querySelectorAll('.jsx-6e9c885e3fde48d5 > div')).forEach(i => i.setAttribute('data-xyz', 'inner'));
+Array.from(document.querySelector('.jsx-6e9c885e3fde48d5')).forEach(i => i.setAttribute('data-xyz', 'container'));
+``` 
+
+With a little bit of CSS I can now target and visually identify the involved elements:
+
+```css
+[data-xyz="container"] {
+  border: 1px solid blue;
+}
+[data-xyz="inne"] {
+  border: 1px solid red;
+}
+```
+
+After some time spent with those 6 elements I did the following thing:
+
+``css
+[data-xyz="container"] {
+  contain: layout;
+}
+[data-xyz="wrap"] {
+  contain: layout;
+  will-change: height; 
+}
+[data-xyz="inner"] {
+  contain: strict;
+  content-visibility: auto; 
+}
+```
+
+I could not measure any impact clearly so I move on 🤷‍. 
+Neverthe less, I have now 2 scnippets to remove noise from the page. 🏆
 
 **Footer**
 
