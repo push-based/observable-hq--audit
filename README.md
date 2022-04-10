@@ -6,7 +6,7 @@
 
 ![img-observablehq-main-page_michael_hladky](https://user-images.githubusercontent.com/10064416/162594795-95c9ea5f-a61c-444c-a014-b40847dead89.PNG)
 
-## TL;DR
+# TL;DR
 
 **CSS**
 
@@ -75,7 +75,7 @@ footer {
 ```
 
 
-## Visual Areas
+# Page Elements
 
 ![img-observablehq-main-page-areas_michael_hladky](https://user-images.githubusercontent.com/10064416/162594799-2cff5cb3-7ead-46cd-aca7-19d55df3646d.PNG)
 
@@ -93,7 +93,7 @@ footer {
 
 ![img-observablehq-main-page-areas-detail-2_michael_hladky](https://user-images.githubusercontent.com/10064416/162594812-715e170d-e891-4c53-a59c-ad76fbd9c273.PNG)
 
-## Initial state
+# Initial state
 
 To start with our audit we need the status quo.
 
@@ -103,27 +103,29 @@ Following measures where taken:
 - Page re-calculate (transformZ 0.1 on body)
 - Page idle (after page is fully loaded some seconds of no interaction)
 
-**Page Refresh**  
+## Page Refresh  
 
 ![img-observablehq-refresh_before](https://user-images.githubusercontent.com/10064416/162595144-c52a5612-b9ca-4457-836d-e586b0b7659f.PNG)
 
-**Page Re-draw DOM**  
+## Page Re-draw DOM  
 
 ![img-observablehq-redom_before](https://user-images.githubusercontent.com/10064416/162595154-dd7da7bd-872e-436e-923b-f382e802dadc.PNG)
 
-**Page Recalculate**  
+## Page Recalculate  
 
 ![img-observablehq-recalculate_before](https://user-images.githubusercontent.com/10064416/162595151-8eee0c6f-0896-4993-b0df-7b3bbc6f690f.PNG)
 
-**Page Scroll**  
+## Page Scroll  
 
 ![img-observablehq-scroll-before](https://user-images.githubusercontent.com/10064416/162595147-77b4b43e-75ba-4c37-adb1-3f9eda1b90d6.PNG)
 
-**Page Idle**  
+## Page Idle    
 
 ![img-observablehq-idle_before](https://user-images.githubusercontent.com/10064416/162595146-a932c466-4b37-4b71-b06e-5fdb032560d9.PNG)
 
-## Audit Documentation
+# Audit Documentation
+
+## First Pokes
 
 After my first impression of the flames and the fact that I **can't touch code nor assets** I decided to focus first on the things I can **easily test and measure**.
 This includes runtime measures of DOM and CSS changes.
@@ -145,6 +147,8 @@ This includes runtime measures of DOM and CSS changes.
 > - wrong dimensions
 
 To be more productive I try to focus me audit process on the same technique across the page and then switch to the next one I think is applicable.
+
+## Phase 1 - Low hanging fruits & discovery
 
 ### `loading`
 
@@ -197,7 +201,6 @@ Let's make a note for the hero section to analyze this.
 
 **Sections**
 
-
 The majority of the pages content is organized in sections with mid size DOM size. In general the site is media heavy but there are some specific sections containing more relevant animation or media we could have a look at. 
 
 We can try if their content is staiy stable if we apply `content-visibility:auto`... It is quite a hick up in the scrollbar, an intrinsic size of `300px` makes it way better. Now a quick check on mobile... It's, at least with touchpad and laptop noticable that the scroll is a bit janky, but lets keep ti for now and take a measure.
@@ -226,7 +229,6 @@ As this most problbby will have an impact on other images and paint heave assets
 
 ```css
 .carousel-notebook {
-  border: 1px solid red;
   contain: content;
   content-visibility: auto;
   contain-intrinsic-size: 200px;
@@ -317,7 +319,7 @@ footer {
 }
 ```
 
-## View Port and LCP Detailled Look
+## Phase 2 - View Port and LCP Detailled Look
 
 **Section - Hero**
 
@@ -359,7 +361,7 @@ background-color: red;
 }
 ```
 
-### Hero section avatar images
+## Phase 3 - Hero section avatar images
 
 I'm back at the image flicker haha. This war gripping my attention from the beginning but I was not sure if it has enough potential to dig in deeper so early on. 
 Now I pretty satisfied with my first findings and can have **finally** a closer look here. 
