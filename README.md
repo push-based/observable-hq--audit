@@ -50,6 +50,7 @@ background-color: red;
 - section - `document.querySelectorAll('#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2')`
   - hero-section - `document.querySelector('#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2')`
     - video (LCP) - document.querySelectorAll('.mw-section video') 
+  - carousel - `document.querySelectorAll('.jsx-1511261573 > .jsx-1511261573 > .jsx-1511261573')`
 - footer - `document.querySelector('footer')`
 
 ![img-observablehq-main-page-areas-detail-1_michael_hladky](https://user-images.githubusercontent.com/10064416/162594810-79308250-4d5e-4371-87e8-20caaf10d192.PNG)
@@ -142,6 +143,8 @@ I start with the quick wins first and worked my way through the previously defin
 
 **Tool-bar**
 
+![img-observablehq-toolbar_michael-hladky](https://user-images.githubusercontent.com/10064416/162595392-e1c37faf-cb29-4751-adca-242f8d463c05.PNG)
+
 The tool-bar is my first candidate. A clear case for `contain:strict` as (even if it self is without fixed dimensions, its first and only child is) we can assume static dimensiones. I did a check for mobile, to be shure it is the same there, which was the case: `height: 55px`. 
 
 It will be off screen when we scroll so we can consider `content-visibility` and `contain-intrinsic-size`. 
@@ -149,6 +152,9 @@ It will be off screen when we scroll so we can consider `content-visibility` and
 I don't measure as I don't asume any big impact.
 
 The interactions with tool-bar elements did not show any animated changes nor dropdowns. The only thing interesting was, when I clicked the searchbox a full bage overlay showed up. At the beginning I did not see it but after some interaction I spotted a flicker in the tiny images of the headline. 
+
+![img-observablehq-search_michael-hladky](https://user-images.githubusercontent.com/10064416/162595399-b200c764-77b2-4ac1-966e-4f933e126f6c.PNG)
+
 
 Let's make a note for the hero section to analyze this.
 
@@ -166,17 +172,13 @@ Looks good! Recalculate styles and redom shows pretty nice improvements already.
 One of the interesting sections is the examples section. 
 There we have 2 carousels containing main cards with images.   
 
-`document.querySelectorAll('.jsx-1511261573 > .jsx-1511261573 > .jsx-1511261573')` 
-
-[section img]()
-
 Their position is animated with translateX which is already pretty good. As an side effect the psint area is huge.  
 
-[LAYERS]()
+![img-observablehq-section-carousel_before_michael-hladky](https://user-images.githubusercontent.com/10064416/162595420-22e49b9e-2023-47f4-ad03-f648d10f3b88.PNG)
 
 Here we can apply again `contain' and `content-visibility`. After we applied the styles we can see in the layers panel that the paint area is now limited to the cards visible in the viewport or obscured. Another check in the layers panel shows us the affected nodes.
 
-[LAYERS]()
+![img-observablehq-section-carousel_after_michael-hladky](https://user-images.githubusercontent.com/10064416/162595425-17c5a007-e364-47a5-a926-68c32de85b8b.PNG)
 
 
 **Section - Usage**
@@ -195,17 +197,18 @@ The hero section maintains a littla bit of fancy text and a video.
 From the toolbar review I have a note regards a flicker in the tiny images of the headline on the right. When openin and closing the search overlay I realized that some images are constantly loaded. 
 2 images visible in the small bubbles in the headline.
 
-[TOOLBAR IMG FETCH]()
+![img-observablehq-search-fetch_michael-hladky](https://user-images.githubusercontent.com/10064416/162595418-a4dbc55e-3808-4a00-a10c-c2b2035c3789.PNG)
 
 A second look in conparison to the rest of the resources showed that these 2 images are with far distance the biggest on the page. 🤣
-[TOOLBAR IMG Net size]()
-
 Due to the usage of CSS and the background-image attribute the priority is always `high` so there is no chance our LCP content gets first. 
-[TOOLBAR IMG Net prio]()
 
-I assume it it triggeren by reacts CD and the usage of css variables as background image but iI'm not sure ATM. 
+![img-observablehq-search-network_michael-hladky](https://user-images.githubusercontent.com/10064416/162595605-1853ef8d-c326-49c4-9ae5-371aac394c04.PNG)
+
+I assume it is triggeren by reacts CD and the usage of css variables as background image but iI'm not sure ATM. 
 
 For now I will keep it with a note to research later...
+
+**LCP Asset**
 
 The video tag on the right is streamed so the first image can get displayes early on.
 
