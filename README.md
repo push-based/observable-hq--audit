@@ -8,6 +8,8 @@
 
 ## TL;DR
 
+**CSS**
+
 ```css
 /* too-bar (c1) */
 nav.bb {
@@ -47,8 +49,9 @@ background-color: red;
 */
 ```
 
-html```
+**HTML**
 
+```html
 <!-- At pageload `31` images are loaded, after relevant images are loaded lazy `14` are loaded. -->
 <img loading="lazy">
 ```
