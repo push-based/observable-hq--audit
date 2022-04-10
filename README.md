@@ -1,6 +1,6 @@
 # Observable HQ - Performance Audit
 
-![img-observablehq-audit-cover_michael_hladky](https://user-images.githubusercontent.com/10064416/162594786-47aa6668-efb6-4d5e-aef1-f557ed6dac76.PNG)
+![img-observablehq-audit-cover_michael_hladky](https://user-images.githubusercontent.com/10064416/162602176-ac0f5194-2933-47c1-9e39-fbe574eeec4a.PNG)
 
 ---
 
