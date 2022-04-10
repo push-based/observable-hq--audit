@@ -186,7 +186,7 @@ Here we can apply again `contain' and `content-visibility`. After we applied the
 A quick look with the paintflash feature shows that again they did quite a good job, transition is used to run the dimensional changes.
 As a small improvement we could add `will-change` to the affected elements. 
 
-[PAINT FLASH]()
+![img-observablehq-section-usage-paint-flash_michael-hladky](https://user-images.githubusercontent.com/10064416/162595643-b5c901db-a784-4962-a0ce-33db806c3d0d.PNG)
 
 ## View Port and LCP Detailled Look
 
