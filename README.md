@@ -66,6 +66,7 @@ img, video {
   - hero-section - `document.querySelector('#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2')`
     - video (LCP) - document.querySelectorAll('.mw-section video') 
   - carousel - `document.querySelectorAll('.jsx-1511261573 > .jsx-1511261573 > .jsx-1511261573')`
+  - DOM animation - `document.querySelector('.jsx-6e9c885e3fde48d5')`
 - footer - `document.querySelector('footer')`
 
 ![img-observablehq-main-page-areas-detail-1_michael_hladky](https://user-images.githubusercontent.com/10064416/162594810-79308250-4d5e-4371-87e8-20caaf10d192.PNG)
@@ -209,9 +210,46 @@ After we applied the styles we can see in the layers panel that the paint area i
 **Section - Usage**
 
 A quick look with the paintflash feature shows that again they did quite a good job, transition is used to run the dimensional changes.
-As a small improvement we could add `will-change` to the affected elements. 
 
 ![img-observablehq-section-usage-paint-flash_michael-hladky](https://user-images.githubusercontent.com/10064416/162595643-b5c901db-a784-4962-a0ce-33db806c3d0d.PNG)
+
+Maybe a small improvement could be done with `will-change`? I have to understand the animation first... 
+
+[ANIMATION AND ELEMENTS]()
+
+From what I understand now, the animation is driven by transform and some properties are translate. The animated elements are all contained by on container with fixed with and height. Some elements are animated out of the container border-box and faded out.
+
+I can access all selected elements like this `document.querySelectorAll('.jsx-6e9c885e3fde48d5 > div')`. 
+
+In can start now to fiddle around, but first I have to stop all the background noise so I can focus on the one animation.
+
+- tool-bar - `document.querySelector('nav.bb')`
+- section - `document.querySelectorAll('#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2')`
+  - hero-section - `document.querySelector('#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2')`
+    - video (LCP) - document.querySelectorAll('.mw-section video') 
+  - carousel - `document.querySelectorAll('.jsx-1511261573 > .jsx-1511261573 > .jsx-1511261573')`
+  - DOM animation - `document.querySelector('.jsx-6e9c885e3fde48d5')`
+- footer - `document.querySelector('footer')`
+
+
+```javascript
+// hero video
+document.querySelector('#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2').remove();
+// carousel
+Array.from(document.querySelectorAll('.jsx-1511261573 > .jsx-1511261573 > .jsx-1511261573')).forEach(i => i.remove());
+```
+
+As the dom changes and it's hard to make changes directly on the element in the Elements tab I first add a class that I can target:
+
+```javascript
+// animated divs
+Array.from(document.querySelectorAll('.jsx-6e9c885e3fde48d5 > div')).forEach(i => i.classList.add('animated-elem'));
+```
+
+
+**Footer**
+
+TODO
 
 ## View Port and LCP Detailled Look
 
