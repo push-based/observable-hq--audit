@@ -215,7 +215,7 @@ A quick look with the paintflash feature shows that again they did quite a good 
 
 Maybe a small improvement could be done with `will-change`? I have to understand the animation first... 
 
-[ANIMATION AND ELEMENTS]()
+![img-observablehq-section-usage-identified_michael-hladky](https://user-images.githubusercontent.com/10064416/162597373-96476722-68c0-447f-8aa8-fba12fe0ef79.PNG)
 
 From what I understand now, the animation is driven by transform and some properties are translate. The animated elements are all contained by on container with fixed with and height. Some elements are animated out of the container border-box and faded out.
 
