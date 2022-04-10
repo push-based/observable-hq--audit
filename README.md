@@ -24,8 +24,16 @@ nav.bb {
   contain-intrinsic-size: 300px;
 }
 
+/* img, video */
+img, video {
+  contain: strict;
+  content-visibility: auto;
+  contain-intrinsic-size: 200px;
+}
+
+
 /* cards */
-'.jsx-1511261573 > .jsx-1511261573 > .jsx-1511261573' {
+.jsx-1511261573 > .jsx-1511261573 > .jsx-1511261573 {
   contain: strict;
   content-visibility: auto;
   contain-intrinsic-size: 200px;
@@ -37,6 +45,12 @@ nav.bb {
 /* just to demonstrate impact visually 
 background-color: red;
 */
+```
+
+html```
+
+<!-- At pageload `31` images are loaded, after relevant images are loaded lazy `14` are loaded. -->
+<img loading="lazy">
 ```
 
 
