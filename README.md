@@ -11,6 +11,12 @@
 **CSS**
 
 ```css
+/* img, video */
+img, video {
+  contain: content;
+  content-visibility: auto;
+}
+
 /* too-bar */
 nav.bb {
   height: 55px;
@@ -26,10 +32,12 @@ nav.bb {
   contain-intrinsic-size: 300px;
 }
 
-/* img, video */
-img, video {
-  contain: content;
-  content-visibility: auto;
+/* hero text avatars*/
+.marketing-presence-widget.jsx-140043cc736fed23:nth-child(1):after {
+  background-image: url(https://avatars.observableusercontent.com/avatar/4b4606a6f4b81cdc32e2a3271381da5fad8ffdbd1089b14e89ebcfd1c98a11c0?s=128);
+}
+.marketing-presence-widget.jsx-140043cc736fed23:nth-child(2):after {
+  background-image: url(https://avatars.observableusercontent.com/avatar/4b4606a…?s=128);
 }
 
 /* carousels */
@@ -367,20 +375,14 @@ document.querySelectorAll('.marketing-presence-widget.jsx-140043cc736fed23:nth-c
 ```
 Now as I remember, I wanted to use a random profile picture from a card to show case the impact. Let me do that right now where I am in the elements panel mood...
 
-```bash
+```jacascript
+// dummy avatar 1
 https://avatars.observableusercontent.com/avatar/4b4606a6f4b81cdc32e2a3271381da5fad8ffdbd1089b14e89ebcfd1c98a11c0?s=128
+// dummy avatar 2
 https://avatars2.githubusercontent.com/u/96189?v=4&s=128
 ```
 
 Ok. Now as I am prepared with some snippets let's finally dig.
-
-My first try was to just replace the css variable value, but it seems it is somewhere recalculated to the same value and set again... hmm..
-```css
-element.style {
- /* new url below */
- --presence-avatar: url(https://avatars.observableusercontent.com/avatar/4b4606a…?s=128);
-}
-```
 
 I will open the network tab to see if a block of those images has an impact.
 
@@ -392,4 +394,24 @@ Woof, only from observing it over the screen it is a drastic difference. Also th
 
 It definitely pays of to think about a solution here!
 
+My first try to change "something" was to just replace the css variable value, but it seems it is somewhere recalculated to the same value and set again... hmm.
 
+```css
+element.style {
+ /* new url below */
+ --presence-avatar: url(https://avatars.observableusercontent.com/avatar/4b4606a…?s=128);
+}
+```
+
+Let's try to go with static CSS values and selectors.
+
+```css
+.marketing-presence-widget.jsx-140043cc736fed23:nth-child(1):after {
+  background-image: url(https://avatars.observableusercontent.com/avatar/4b4606a6f4b81cdc32e2a3271381da5fad8ffdbd1089b14e89ebcfd1c98a11c0?s=128);
+}
+.marketing-presence-widget.jsx-140043cc736fed23:nth-child(2):after {
+  background-image: url(https://avatars.observableusercontent.com/avatar/4b4606a…?s=128);
+}
+``` 
+
+Voila! The refetching is now gone and also a propperly sized image is used. 💪
