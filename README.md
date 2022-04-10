@@ -11,7 +11,7 @@
 **CSS**
 
 ```css
-/* too-bar (c1) */
+/* too-bar */
 nav.bb {
   height: 55px;
   contain: strict;
@@ -19,7 +19,7 @@ nav.bb {
   contain-intrinsic-size: 55px;
 }
 
-/* all sections (c2) */
+/* all sections */
 #__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2 {
   contain: content;
   content-visibility: auto;
@@ -44,6 +44,13 @@ img, video {
 /* LCP video */
 .mw-section video {
   background-image: url(https://static.observableusercontent.com/thumbnail/820c1ce779bde2347e128aab81a550e16f95126993729412583ac517dd0c2c1f.jpg);
+}
+
+/* footer */
+footer {
+  contain: content;
+  content-visibility: auto;
+  contain-intrinsic-size: 200px;
 }
 ```
 
