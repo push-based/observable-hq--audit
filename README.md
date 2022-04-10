@@ -103,7 +103,7 @@ Following measures where taken:
 
 ![img-observablehq-idle_before](https://user-images.githubusercontent.com/10064416/162595146-a932c466-4b37-4b71-b06e-5fdb032560d9.PNG)
 
-## Audit Thought Process
+## Audit Documentation
 
 ### First Quick Findings
 
