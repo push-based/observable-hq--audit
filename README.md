@@ -130,6 +130,8 @@ Following measures where taken:
 After my first impression of the flames and the fact that I **can't touch code nor assets** I decided to focus first on the things I can **easily test and measure**.
 This includes runtime measures of DOM and CSS changes.
 
+Here the transfered list form my skretch paper as I was too lazy to start a readme right away. 
+
 > **First Quick Findings**
 > 
 > Scripting:
