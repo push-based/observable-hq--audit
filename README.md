@@ -107,7 +107,7 @@ Following measures where taken:
 
 ### First Quick Findings
 
-**Spcipting:**
+**Scripting:**
 - script dirven animations
 - bad lib for DOM animation
 
@@ -257,7 +257,7 @@ With a little bit of CSS I can now target and visually identify the involved ele
 
 After some time spent with those 6 elements I did the following thing:
 
-``css
+```css
 [data-xyz="container"] {
   contain: layout;
 }
@@ -269,6 +269,7 @@ After some time spent with those 6 elements I did the following thing:
   contain: strict;
   content-visibility: auto; 
 }
+
 ```
 
 I could not measure any impact clearly so I move on 🤷‍. 
@@ -276,7 +277,15 @@ Neverthe less, I have now 2 scnippets to remove noise from the page. 🏆
 
 **Footer**
 
-TODO
+The footer is another clear candidate for our silver bullets ;), Lets see what we can have.
+
+```css
+footer {
+  contain: content;
+  content-visibility: auto;
+  contain-intrinsic-size: 200px;
+}
+```
 
 ## View Port and LCP Detailled Look
 
