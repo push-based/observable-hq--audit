@@ -192,7 +192,7 @@ Their position is animated with translateX which is already pretty good. As an s
 
 ![img-observablehq-section-carousel_before_michael-hladky](https://user-images.githubusercontent.com/10064416/162595420-22e49b9e-2023-47f4-ad03-f648d10f3b88.PNG)
 
-Here we can apply again `contain' and `content-visibility`. 
+Here we can apply again `contain` and `content-visibility`. 
 
 ```css
 img, video {
