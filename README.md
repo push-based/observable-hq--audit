@@ -250,9 +250,8 @@ In the snippet below I just used an image from the cards to showcase the effect.
 ```css
 .mw-section video {
   background-image: url(https://static.observableusercontent.com/thumbnail/820c1ce779bde2347e128aab81a550e16f95126993729412583ac517dd0c2c1f.jpg);
-/* just to demonstrate impact visually 
+/* just to demonstrate impact visually */
 background-color: red;
-*/
 }
 ```
 
