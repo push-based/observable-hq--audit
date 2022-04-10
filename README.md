@@ -28,7 +28,7 @@ nav.bb {
 
 /* img, video */
 img, video {
-  contain: strict;
+  contain: content;
   content-visibility: auto;
   contain-intrinsic-size: 200px;
 }
@@ -44,9 +44,7 @@ img, video {
 /* video */
 .mw-section video {
   background-image: url(https://static.observableusercontent.com/thumbnail/820c1ce779bde2347e128aab81a550e16f95126993729412583ac517dd0c2c1f.jpg);
-/* just to demonstrate impact visually 
-background-color: red;
-*/
+}
 ```
 
 **HTML**
@@ -193,7 +191,17 @@ Their position is animated with translateX which is already pretty good. As an s
 
 ![img-observablehq-section-carousel_before_michael-hladky](https://user-images.githubusercontent.com/10064416/162595420-22e49b9e-2023-47f4-ad03-f648d10f3b88.PNG)
 
-Here we can apply again `contain' and `content-visibility`. After we applied the styles we can see in the layers panel that the paint area is now limited to the cards visible in the viewport or obscured. Another check in the layers panel shows us the affected nodes.
+Here we can apply again `contain' and `content-visibility`. 
+
+```css
+img, video {
+  contain: content;
+  content-visibility: auto;
+  contain-intrinsic-size: 200px;
+}
+```
+
+After we applied the styles we can see in the layers panel that the paint area is now limited to the cards visible in the viewport or obscured. Another check in the layers panel shows us the affected nodes.
 
 ![img-observablehq-section-carousel_after_michael-hladky](https://user-images.githubusercontent.com/10064416/162595425-17c5a007-e364-47a5-a926-68c32de85b8b.PNG)
 
