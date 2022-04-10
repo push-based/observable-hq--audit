@@ -4,8 +4,6 @@
 
 ---
 
-![img-observablehq-main-page_michael_hladky](https://user-images.githubusercontent.com/10064416/162594795-95c9ea5f-a61c-444c-a014-b40847dead89.PNG)
-
 # TL;DR
 
 **CSS**
@@ -74,6 +72,13 @@ footer {
 <img loading="lazy">
 ```
 
+# Main Page
+
+![img-observablehq-main-page_michael_hladky](https://user-images.githubusercontent.com/10064416/162594795-95c9ea5f-a61c-444c-a014-b40847dead89.PNG)
+
+The pages, from the first grims, contaons lost of images and i gues live demos of the editor. It took quite a while to load the LCP video, but maybe because I sit in the kitchen instead of my desk. There I always have bad connection.
+
+To get a good first overview let's start with the visible part in more detail.
 
 # Page Elements
 
