@@ -55,7 +55,6 @@ nav.bb {
 .carousel-notebook {
   contain: content;
   content-visibility: auto;
-  contain-intrinsic-size: 200px;
 }
   
 /* LCP video */
@@ -75,7 +74,7 @@ footer {
 **Scripting**
 
 ```javascript
-// add above scripts to page
+// add above styles to the page
 const stylesString = `...` // Copy paste above styles here 
 const styleTag = document.createElement('style');
 styleTag.innerHTML = stylesString;
@@ -99,6 +98,7 @@ Array.from(imgs)
 **Show me how to reproduze it quickly**
 
 To quickly check it in your browser open the DevTools "Sources" tab and click on "Snippets".
+Create a snippet with the code above, execute it and measure the impact.
 
 ![img-dev-tools--snippets_michael_hladky](https://user-images.githubusercontent.com/10064416/163622952-ba8e0b03-fe96-4ffb-a8d9-4f7c4cb3442c.PNG)
 
