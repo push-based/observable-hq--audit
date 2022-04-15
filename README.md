@@ -95,7 +95,17 @@ Array.from(imgs)
 
 To quickly check it in your browser open the DevTools "Sources" tab and click on "Snippets".
 
-![img-dev-tools--snippets_michael_hladky](https://user-images.githubusercontent.com/10064416/163598217-58f21ff7-e6d6-4b09-bd80-17dbde5230d1.PNG)
+![img-dev-tools--snippets_michael_hladky](https://user-images.githubusercontent.com/10064416/163599288-7918c103-0297-415d-966e-1eca10a18d60.PNG)
+
+1. Open DevTools
+2. Select Sources Tab
+3. Select Snippets
+4. Click New snippet
+5. Give it a name
+6. Insert scripts
+7. Execute
+8. Check console
+
 
 ```javascript
 const stylesString = `
