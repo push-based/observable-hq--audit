@@ -186,35 +186,16 @@ This is how I performed the measures:
 
 ![img-observablehq-refresh_before](https://user-images.githubusercontent.com/10064416/162595144-c52a5612-b9ca-4457-836d-e586b0b7659f.PNG)
 
-**full-relayout.js**
-```javascript
-function fullRelayout() {
-if(window.__pb_full_relayout_listener === true) { console.log('You clicked too fast');}
-window.performance.mark('relayout-start');
-document.body.style.zoom === '1' ? document.body.style.zoom = '1.01' : document.body.style.zoom = '1';
-window.__pb_full_relayout_listener = true;
-setTimeout(() => {
-    if (window.__pb_full_relayout_listener) {
-        window.performance.mark('relayout-end');
-        window.performance.measure('full-relayout', 'relayout-start', 'relayout-end');
-        const duration = window.performance.getEntriesByName('full-relayout')[0].duration;
-        console.log(`full-relayout: ${duration}`, duration > 50 ? '❌' : '✔');
-        window.performance.clearMarks();
-        window.performance.clearMeasures();
-        window.__pb_full_relayout_listener = false;
-    }
-});
-}
-let runs = 0;
-const id = setInterval(() => {
-++runs === 10 && clearInterval(id) && console.log('relayout done!');
-fullRelayout();
-}, 1000);
-```
-
 ### Page Re-draw DOM  
 
 ![img-observablehq-redom_before](https://user-images.githubusercontent.com/10064416/162595154-dd7da7bd-872e-436e-923b-f382e802dadc.PNG)
+
+To reproduce the measure:
+1. Setup the script below as snippet in DevTools -> Sources -> Snippets
+2. Setup tedTools as described in "Measure Process" above.
+3. Start recording
+4. Execute script over "Quick source"
+5. Stop recording
 
 **dom-redraw.js**
 ```javascript
@@ -253,13 +234,52 @@ fullRedom();
 
 ![img-observablehq-recalculate_before](https://user-images.githubusercontent.com/10064416/162595151-8eee0c6f-0896-4993-b0df-7b3bbc6f690f.PNG)
 
+To reproduce the measure:
+1. Setup the script below as snippet in DevTools -> Sources -> Snippets
+2. Setup tedTools as described in "Measure Process" above.
+3. Start recording
+4. Execute script over "Quick source"
+5. Stop recording
+
+**full-relayout.js**
+```javascript
+function fullRelayout() {
+if(window.__pb_full_relayout_listener === true) { console.log('You clicked too fast');}
+window.performance.mark('relayout-start');
+document.body.style.zoom === '1' ? document.body.style.zoom = '1.01' : document.body.style.zoom = '1';
+window.__pb_full_relayout_listener = true;
+setTimeout(() => {
+    if (window.__pb_full_relayout_listener) {
+        window.performance.mark('relayout-end');
+        window.performance.measure('full-relayout', 'relayout-start', 'relayout-end');
+        const duration = window.performance.getEntriesByName('full-relayout')[0].duration;
+        console.log(`full-relayout: ${duration}`, duration > 50 ? '❌' : '✔');
+        window.performance.clearMarks();
+        window.performance.clearMeasures();
+        window.__pb_full_relayout_listener = false;
+    }
+});
+}
+let runs = 0;
+const id = setInterval(() => {
+++runs === 10 && clearInterval(id) && console.log('relayout done!');
+fullRelayout();
+}, 1000);
+```
+
 ### Page Scroll  
 
 ![img-observablehq-scroll-before](https://user-images.githubusercontent.com/10064416/163596137-3532bef3-3faf-477e-9e8d-ed0936e8f277.PNG)
 
+To reproduce the measure:
+1. Setup the script below as snippet in DevTools -> Sources -> Snippets
+2. Setup tedTools as described in "Measure Process" above.
+3. Start recording
+4. Execute script over "Quick source"
+5. Stop recording
+
 ```javascript
 // Scroll up down
-
 const scrollHeight = document.documentElement.scrollHeight;
 const viewPortHeight = window.innerHeight;
 
