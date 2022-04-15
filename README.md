@@ -51,14 +51,12 @@ nav.bb {
 .jsx-1511261573 > .jsx-1511261573 > .jsx-1511261573 {
   contain: strict;
   content-visibility: auto;
-  contain-intrinsic-size: 200px;
 }
 
 /* cards */
 .carousel-notebook {
   contain: content;
   content-visibility: auto;
-  contain-intrinsic-size: 200px;
 }
 
 /* LCP video */
