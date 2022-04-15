@@ -276,28 +276,18 @@ To reproduce the measure:
 
 ```javascript
 // Scroll up down
-const scrollHeight = document.documentElement.scrollHeight;
-const viewPortHeight = window.innerHeight;
-
-window.addEventListener('scroll', onScroll);
-
 window.scroll({
   top: scrollHeight, 
   behavior: 'smooth'
 });
 
-function onScroll() {
-  const lastKnownScrollPosition = window.scrollY;
-  if(lastKnownScrollPosition >= scrollHeight - viewPortHeight) {
-    // Remove event listener kepp keep page clean after execution
-    window.removeEventListener('scroll', onScroll);
-    // wait for a second, then scroll back up
-    setTimeout(() => window.scroll({
-      top: 0, 
-      behavior: 'smooth'
-      }), 1000);
-  }
-};
+// wait for a second, then scroll back up
+setTimeout(() => window.scroll({
+  top: 0, 
+  behavior: 'smooth'
+  }), 3000);
+
+console.log('Scroll done!'); 
 
 ``` 
 
