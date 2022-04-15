@@ -130,7 +130,7 @@ Following measures where taken:
 
 ## Page Scroll  
 
-![img-observablehq-scroll-before](https://user-images.githubusercontent.com/10064416/162595147-77b4b43e-75ba-4c37-adb1-3f9eda1b90d6.PNG)
+![img-observablehq-scroll-before](https://user-images.githubusercontent.com/10064416/163596137-3532bef3-3faf-477e-9e8d-ed0936e8f277.PNG)
 
 ## Page Idle    
 
