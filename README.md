@@ -115,7 +115,7 @@ Create a snippet with the code above, execute it and measure the impact.
 
 ![img-observablehq-main-page_michael_hladky](https://user-images.githubusercontent.com/10064416/162594795-95c9ea5f-a61c-444c-a014-b40847dead89.PNG)
 
-The pages, from the first grims, contains lot's of images and I gues live demos of the editor. It took quite a while to load the LCP video, but maybe because I sit in the kitchen instead of my desk. 
+The pages, from the first glims, contains lot's of images and I guess live demos of the editor. It took quite a while to load the LCP video, but maybe because I sit in the kitchen instead of my desk. 🙃
 There, I always have bad connection. 💤
 
 To get a good first overview let's start with the visible part in more detail.
@@ -155,15 +155,15 @@ I took the Observable HQ site for the audit as it is a really nice tool and I co
 [http://observablehq.com](http://observablehq.com)
 
 **Conditions**  
-I used "native throtteling" in this audit, which means all my measures are done in my kitchen with flaky internet connection and no power pluck in. 😅
-The only thing I made shure was to have everyithing open in incognito mode.
+I used "native throtteling" in this audit 🤣, which means all my measures are done in my kitchen with flaky internet connection and no power pluck in. 😅
+The only thing I made shure was to have everything open in incognito mode.
 
 **Device**  
-All the measures are done on a ThinkPad X1 (i7 8th Gen) on a Windows OS
+All the measures are done on a _ThinkPad X1 (i7 8th Gen)_ on a _Windows OS_
 
 ## Base Measures
 
-Following measures where taken:
+The following measures where taken:
 - Page refresh (a full page refresh triggeres over the performace panel)
 - Page re-dom (a full removal and addinf back of the DOM)
 - Page re-calculate (transformZ 0.1 on body)
@@ -179,10 +179,15 @@ This is how I performed the measures:
 
 1. Open the `Performance` tab 
 2. In the bottom section, select the `Quick source` tab (and close all other tabs)
-3. Start profiling with `Ctrl + E` or the ⏺ butto
+3. Start profiling with `Ctrl + E` or the ⏺ button
 4. Click on the  ▶  butto to execute the script
-5. The `console` tab pop`s in which is annoying because we have to click on the `Quick source` tab again
-6. Start profiling with `Ctrl + E` or the ⏹ butto
+5. Start profiling with `Ctrl + E` or the ⏹ button
+
+> **Tip: **
+> The `console` tab pop`s in after every script execution.
+> This is annoying because we have to click on the `Quick source` tab again.
+> To lessen the pain and live-hack it we can shrink the output area to the minimum.
+> By doing this we can have a short distance between the tabs and the execute button.
 
 ### Page Refresh  
 
