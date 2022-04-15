@@ -276,6 +276,11 @@ To reproduce the measure:
 
 ```javascript
 // Scroll up down
+const scrollHeight = document.documentElement.scrollHeight;
+
+console.log('scrollHeight', scrollHeight); 
+
+
 window.scroll({
   top: scrollHeight, 
   behavior: 'smooth'
@@ -287,8 +292,7 @@ setTimeout(() => window.scroll({
   behavior: 'smooth'
   }), 3000);
 
-console.log('Scroll done!'); 
-
+console.log('scroll done!'); 
 ``` 
 
 ### Page Idle    
