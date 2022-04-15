@@ -97,7 +97,7 @@ Array.from(imgs)
 
 To quickly check it in your browser open the DevTools "Sources" tab and click on "Snippets".
 
-
+![img-dev-tools--snippets_michael_hladky](https://user-images.githubusercontent.com/10064416/163598217-58f21ff7-e6d6-4b09-bd80-17dbde5230d1.PNG)
 
 ```javascript
 const stylesString = `
