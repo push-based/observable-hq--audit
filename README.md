@@ -14,9 +14,10 @@ I took the Observable HQ site for the audit as it is a really nice tool and I co
 
 # TL;DR
 
-**CSS**
+**Styles**
 
-```css
+```html
+<style>
 /* img, video */
 img, video {
   contain: content;
@@ -71,13 +72,49 @@ footer {
   content-visibility: auto;
   contain-intrinsic-size: 200px;
 }
+</style>
 ```
 
-**HTML**
+**Scripting**
 
 ```html
 <!-- At pageload `31` images are loaded, after relevant images are loaded lazy `14` are loaded. -->
 <img loading="lazy">
+```
+
+```javascript
+const imgs = document.querySelectorAll('img, iframe'); 
+Array.from(imgs)
+  .forEach(i => {
+    // exclude LCP image
+    if() {
+      i.setAttribute('loading', 'lazy')
+    }
+  });
+```
+
+## Show me how to reproduze it quickly
+
+To quickly check it in your browser open the DevTools "Sources" tab and click on "Snippets".
+
+
+
+```javascript
+const stylesString = `
+ /* STYLES HERE */
+`
+const styleTag = document.createElement('style');
+styleTag.innerHTML = stylesString;
+document.head.appendChild(styleTag);
+
+const imgs = document.querySelectorAll('img, iframe'); 
+Array.from(imgs)
+  .forEach(i => {
+    if(!lcpMedia.includes(i)) {
+      
+    }
+    i.setAttribute('loading', 'lazy')
+  });
 ```
 
 # Main Page
