@@ -170,6 +170,20 @@ Following measures where taken:
 - Page re-calculate (transformZ 0.1 on body)
 - Page idle (after page is fully loaded some seconds of no interaction)
 
+**Measure Process**
+
+All measures are produced with small scripts I hold in my `DevTooly` -> `Snippets` tab.
+
+This is how I performed the measures:
+
+1. Open the `Performance` tab 
+2. In the bottom section, select the `Quick source` tab (and close all other tabs)
+3. Start profiling with `Ctrl + E` or the ⏺ butto
+4. Click on the  ▶  butto to execute the script
+5. The `console` tab pop`s in which is annoying because we have to click on the `Quick source` tab again
+6. Start profiling with `Ctrl + E` or the ⏹ butto
+
+
 ## Page Refresh  
 
 ![img-observablehq-refresh_before](https://user-images.githubusercontent.com/10064416/162595144-c52a5612-b9ca-4457-836d-e586b0b7659f.PNG)
@@ -185,6 +199,34 @@ Following measures where taken:
 ## Page Scroll  
 
 ![img-observablehq-scroll-before](https://user-images.githubusercontent.com/10064416/163596137-3532bef3-3faf-477e-9e8d-ed0936e8f277.PNG)
+
+```javascript
+// Scroll up down
+
+const scrollHeight = document.documentElement.scrollHeight;
+const viewPortHeight = window.innerHeight;
+
+window.addEventListener('scroll', onScroll);
+
+window.scroll({
+  top: scrollHeight, 
+  behavior: 'smooth'
+});
+
+function onScroll() {
+  const lastKnownScrollPosition = window.scrollY;
+  if(lastKnownScrollPosition >= scrollHeight - viewPortHeight) {
+    // Remove event listener kepp keep page clean after execution
+    window.removeEventListener('scroll', onScroll);
+    // wait for a second, then scroll back up
+    setTimeout(() => window.scroll({
+      top: 0, 
+      behavior: 'smooth'
+      }), 1000);
+  }
+};
+
+``` 
 
 ## Page Idle    
 
