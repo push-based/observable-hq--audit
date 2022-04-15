@@ -4,13 +4,22 @@
 
 ---
 
-# Target
+# Audit setup
+## Target
 
 I took the Observable HQ site for the audit as it is a really nice tool and I could maybe provide some benefit to them.
 
 **URL:**  
 [http://observablehq.com](http://observablehq.com)
 
+## Conditions
+
+I used "native throtteling" in this audit, which means all my measures are done in my kitchen with flaky internet connection and no power pluck in. 😅
+The only thing I made shure was to have everyithing open in incognito mode.
+
+## Device
+
+All the measures are done on a ThinkPad X1 (i7 8th Gen) on a Windows OS
 
 # TL;DR
 
@@ -393,7 +402,7 @@ From the toolbar review I have a note regards a flicker in the tiny images of th
 A second look in conparison to the rest of the resources showed that these 2 images are with far distance the biggest on the page. 🤣
 Due to the usage of CSS and the background-image attribute the priority is always `high` so there is no chance our LCP content gets first. 
 
-![img-observablehq-search-network_michael-hladky](https://user-images.githubusercontent.com/10064416/162595605-1853ef8d-c326-49c4-9ae5-371aac394c04.PNG)
+![img-observablehq-search-network_michael-hladky](https://user-images.githubusercontent.com/10064416/163600935-ae0151a8-da8d-47e8-9a76-3b3d7c55ccbb.PNG)
 
 I assume it is triggeren by reacts CD and the usage of css variables as background image but iI'm not sure ATM. 
 
