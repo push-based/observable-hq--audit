@@ -4,23 +4,6 @@
 
 ---
 
-# Audit setup
-**Target**
-
-I took the Observable HQ site for the audit as it is a really nice tool and I could maybe provide some benefit to them.
-
-**URL:**  
-[http://observablehq.com](http://observablehq.com)
-
-**Conditions**
-
-I used "native throtteling" in this audit, which means all my measures are done in my kitchen with flaky internet connection and no power pluck in. 😅
-The only thing I made shure was to have everyithing open in incognito mode.
-
-**Device**
-
-All the measures are done on a ThinkPad X1 (i7 8th Gen) on a Windows OS
-
 # TL;DR
 
 **Styles**
@@ -144,6 +127,23 @@ To get a good first overview let's start with the visible part in more detail.
 # Initial state
 
 To start with our audit we need the status quo.
+
+## Audit setup
+
+**Target**  
+I took the Observable HQ site for the audit as it is a really nice tool and I could maybe provide some benefit to them.
+
+**URL:**  
+[http://observablehq.com](http://observablehq.com)
+
+**Conditions**  
+I used "native throtteling" in this audit, which means all my measures are done in my kitchen with flaky internet connection and no power pluck in. 😅
+The only thing I made shure was to have everyithing open in incognito mode.
+
+**Device**  
+All the measures are done on a ThinkPad X1 (i7 8th Gen) on a Windows OS
+
+## Base Measures
 
 Following measures where taken:
 - Page refresh (a full page refresh triggeres over the performace panel)
