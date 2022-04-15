@@ -115,8 +115,6 @@ To quickly check it in your browser open the DevTools "Sources" tab and click on
 7. Execute
 8. Check console
 
-![img-measure-process--snippets_michael-hladky](https://user-images.githubusercontent.com/10064416/163622475-60ccd81f-8002-4535-9a03-90e20b3061cc.png)
-
 # Main Page
 
 ![img-observablehq-main-page_michael_hladky](https://user-images.githubusercontent.com/10064416/162594795-95c9ea5f-a61c-444c-a014-b40847dead89.PNG)
@@ -159,12 +157,15 @@ All measures are produced with small scripts I hold in my `DevTooly` -> `Snippet
 
 This is how I performed the measures:
 
+![img-measure-process--snippets_michael-hladky](https://user-images.githubusercontent.com/10064416/163622475-60ccd81f-8002-4535-9a03-90e20b3061cc.png)
+
 1. Open the `Performance` tab 
 2. In the bottom section, select the `Quick source` tab (and close all other tabs)
 3. Start profiling with `Ctrl + E` or the ⏺ butto
 4. Click on the  ▶  butto to execute the script
 5. The `console` tab pop`s in which is annoying because we have to click on the `Quick source` tab again
 6. Start profiling with `Ctrl + E` or the ⏹ butto
+
 
 
 ## Page Refresh  
