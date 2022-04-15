@@ -186,9 +186,68 @@ This is how I performed the measures:
 
 ![img-observablehq-refresh_before](https://user-images.githubusercontent.com/10064416/162595144-c52a5612-b9ca-4457-836d-e586b0b7659f.PNG)
 
+**full-relayout.js**
+```javascript
+function fullRelayout() {
+if(window.__pb_full_relayout_listener === true) { console.log('You clicked too fast');}
+window.performance.mark('relayout-start');
+document.body.style.zoom === '1' ? document.body.style.zoom = '1.01' : document.body.style.zoom = '1';
+window.__pb_full_relayout_listener = true;
+setTimeout(() => {
+    if (window.__pb_full_relayout_listener) {
+        window.performance.mark('relayout-end');
+        window.performance.measure('full-relayout', 'relayout-start', 'relayout-end');
+        const duration = window.performance.getEntriesByName('full-relayout')[0].duration;
+        console.log(`full-relayout: ${duration}`, duration > 50 ? '❌' : '✔');
+        window.performance.clearMarks();
+        window.performance.clearMeasures();
+        window.__pb_full_relayout_listener = false;
+    }
+});
+}
+let runs = 0;
+const id = setInterval(() => {
+++runs === 10 && clearInterval(id) && console.log('relayout done!');
+fullRelayout();
+}, 1000);
+```
+
 ### Page Re-draw DOM  
 
 ![img-observablehq-redom_before](https://user-images.githubusercontent.com/10064416/162595154-dd7da7bd-872e-436e-923b-f382e802dadc.PNG)
+
+**dom-redraw.js**
+```javascript
+const bi = document.body.innerHTML; 
+function fullRedom() {
+if(window.__pb_full_redom_listener === true) { console.log('You clicked too fast');}
+document.body.innerHTML = '';
+setTimeout(() => {
+window.performance.mark('redom-start');
+
+document.body.innerHTML = bi
+
+
+window.__pb_full_relayout_listener = true;
+
+    if (window.__pb_full_redom_listener) {
+        window.performance.mark('redom-end');
+        window.performance.measure('full-redom', 'redom-start', 'redom-end');
+        const duration = window.performance.getEntriesByName('full-redom')[0].duration;
+        console.log(`full-redom: ${duration}`, duration > 50 ? '❌' : '✔');
+        window.performance.clearMarks();
+        window.performance.clearMeasures();
+        window.__pb_full_relayout_listener = false;
+    }
+
+    }, 400);
+}
+let runs = 0;
+const id = setInterval(() => {
+++runs === 10 && clearInterval(id) && console.log('relayout done!');
+fullRedom();
+}, 1400);
+```
 
 ### Page Recalculate  
 
