@@ -180,8 +180,6 @@ This is how I performed the measures:
 5. The `console` tab pop`s in which is annoying because we have to click on the `Quick source` tab again
 6. Start profiling with `Ctrl + E` or the ⏹ butto
 
-
-
 ### Page Refresh  
 
 ![img-observablehq-refresh_before](https://user-images.githubusercontent.com/10064416/162595144-c52a5612-b9ca-4457-836d-e586b0b7659f.PNG)
@@ -206,9 +204,7 @@ document.body.innerHTML = '';
 setTimeout(() => {
 window.performance.mark('redom-start');
 
-document.body.innerHTML = bi
-
-
+document.body.innerHTML = bi;
 window.__pb_full_relayout_listener = true;
 
     if (window.__pb_full_redom_listener) {
@@ -308,6 +304,8 @@ function onScroll() {
 ### Page Idle    
 
 ![img-observablehq-idle_before](https://user-images.githubusercontent.com/10064416/162595146-a932c466-4b37-4b71-b06e-5fdb032560d9.PNG)
+
+To reproduce the measure just recorde the page without any interaction for some time.
 
 # Audit Documentation
 
