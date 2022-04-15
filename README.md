@@ -75,6 +75,11 @@ footer {
 **Scripting**
 
 ```javascript
+// add above scripts to page
+const stylesString = `...` // Copy paste above styles here 
+const styleTag = document.createElement('style');
+styleTag.innerHTML = stylesString;
+document.head.appendChild(styleTag);
 
 // avatars
 document.querySelector('.marketing-presence-widget.jsx-140043cc736fed23:nth-child(1)')
@@ -84,13 +89,10 @@ document.querySelector('.marketing-presence-widget.jsx-140043cc736fed23:nth-chil
 
 // images
 // At pageload `31` images are loaded, after relevant images are loaded lazy `14` are loaded
-const imgs = document.querySelectorAll('img, iframe'); 
+const imgs = document.querySelectorAll('img, iframe');
 Array.from(imgs)
   .forEach(i => {
-    // exclude LCP image
-    if(true || 'LPC NODE') {
-      i.setAttribute('loading', 'lazy')
-    }
+    i.setAttribute('loading', 'lazy');
   });
 ```
 
