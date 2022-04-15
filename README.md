@@ -486,3 +486,8 @@ Let's try to go with static CSS values and selectors.
 ``` 
 
 Voila! The refetching is now gone and also a propperly sized image is used. 💪
+
+
+# Resources
+- [Edited images of this audit as slide deck](https://docs.google.com/presentation/d/1x167yfcHr--3366FC1Lvr_YhzZ-ySyoGBlSjkBz8d94/edit?usp=sharing)
+- [Raw measures](/raw)
