@@ -171,7 +171,7 @@ All measures are produced with small scripts I hold in my `DevTooly` -> `Snippet
 
 This is how I performed the measures:
 
-![img-measure-process--snippets_michael-hladky](https://user-images.githubusercontent.com/10064416/163622475-60ccd81f-8002-4535-9a03-90e20b3061cc.png)
+![img-measure-process--snippets_michael-hladky](https://user-images.githubusercontent.com/10064416/163649294-8580b81e-1a15-4231-81fd-c986f542b183.png)
 
 1. Open the `Performance` tab 
 2. In the bottom section, select the `Quick source` tab (and close all other tabs)
