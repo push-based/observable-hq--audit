@@ -626,8 +626,10 @@ document.querySelector('.marketing-presence-widget.jsx-140043cc736fed23:nth-chil
   .innerHTML = '<img class="avatar" width="32" height="32" src="https://avatars2.githubusercontent.com/u/96189?v=4&s=128">';
 ```
 
-Perfect after this improvement they also have fetch priority `low`.
+Perfect after this improvement they also have fetch priority `low` 🥳🥳🥳.
 
+
+Bam... I would say let's call it a day. 😴
 
 # Resources
 - [Edited images of this audit as slide deck](https://docs.google.com/presentation/d/1x167yfcHr--3366FC1Lvr_YhzZ-ySyoGBlSjkBz8d94/edit?usp=sharing)
