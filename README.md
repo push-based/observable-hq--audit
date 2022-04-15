@@ -168,19 +168,19 @@ This is how I performed the measures:
 
 
 
-## Page Refresh  
+### Page Refresh  
 
 ![img-observablehq-refresh_before](https://user-images.githubusercontent.com/10064416/162595144-c52a5612-b9ca-4457-836d-e586b0b7659f.PNG)
 
-## Page Re-draw DOM  
+### Page Re-draw DOM  
 
 ![img-observablehq-redom_before](https://user-images.githubusercontent.com/10064416/162595154-dd7da7bd-872e-436e-923b-f382e802dadc.PNG)
 
-## Page Recalculate  
+### Page Recalculate  
 
 ![img-observablehq-recalculate_before](https://user-images.githubusercontent.com/10064416/162595151-8eee0c6f-0896-4993-b0df-7b3bbc6f690f.PNG)
 
-## Page Scroll  
+### Page Scroll  
 
 ![img-observablehq-scroll-before](https://user-images.githubusercontent.com/10064416/163596137-3532bef3-3faf-477e-9e8d-ed0936e8f277.PNG)
 
@@ -212,7 +212,7 @@ function onScroll() {
 
 ``` 
 
-## Page Idle    
+### Page Idle    
 
 ![img-observablehq-idle_before](https://user-images.githubusercontent.com/10064416/162595146-a932c466-4b37-4b71-b06e-5fdb032560d9.PNG)
 
