@@ -96,7 +96,7 @@ Array.from(imgs)
   });
 ```
 
-## Show me how to reproduze it quickly
+**Show me how to reproduze it quickly**
 
 To quickly check it in your browser open the DevTools "Sources" tab and click on "Snippets".
 
@@ -629,7 +629,12 @@ document.querySelector('.marketing-presence-widget.jsx-140043cc736fed23:nth-chil
 Perfect after this improvement they also have fetch priority `low` 🥳🥳🥳.
 
 
-Bam... I would say let's call it a day. 😴
+Bam... I would say let's call it a day. 🌑
+The snippets to remeasure are now pretty nice to use and I'm excited to run the measures with the improvements and compare them after some 😴.
+
+# Optimized State
+
+
 
 # Resources
 - [Edited images of this audit as slide deck](https://docs.google.com/presentation/d/1x167yfcHr--3366FC1Lvr_YhzZ-ySyoGBlSjkBz8d94/edit?usp=sharing)
