@@ -115,7 +115,8 @@ Create a snippet with the code above, execute it and measure the impact.
 
 ![img-observablehq-main-page_michael_hladky](https://user-images.githubusercontent.com/10064416/162594795-95c9ea5f-a61c-444c-a014-b40847dead89.PNG)
 
-The pages, from the first grims, contaons lost of images and i gues live demos of the editor. It took quite a while to load the LCP video, but maybe because I sit in the kitchen instead of my desk. There I always have bad connection.
+The pages, from the first grims, contains lot's of images and I gues live demos of the editor. It took quite a while to load the LCP video, but maybe because I sit in the kitchen instead of my desk. 
+There, I always have bad connection. 💤
 
 To get a good first overview let's start with the visible part in more detail.
 
@@ -123,8 +124,11 @@ To get a good first overview let's start with the visible part in more detail.
 
 ![img-observablehq-main-page-areas_michael_hladky](https://user-images.githubusercontent.com/10064416/162594799-2cff5cb3-7ead-46cd-aca7-19d55df3646d.PNG)
 
+**Areas:**  
+The areas are collected through my audit. Whenever I was identifying an elemen I was also saving the selector here.
+I included the method e.g. `querySelector` to get the list of all relevant elements with the snippet.
+This will save me some time and I don't need to maintain it in DevtTool yet.
 
-**Areas:**
 - tool-bar - `document.querySelector('nav.bb')`
 - section - `document.querySelectorAll('#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2')`
   - hero-section - `document.querySelector('#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2')`
@@ -140,7 +144,7 @@ To get a good first overview let's start with the visible part in more detail.
 
 # Initial state
 
-To start with our audit we need the status quo.
+To start with our audit we need a reproduzeable way to measure the status quo, and in what conditions we took the measure.
 
 ## Audit setup
 
