@@ -104,7 +104,7 @@ Array.from(imgs)
 
 To quickly check it in your browser open the DevTools "Sources" tab and click on "Snippets".
 
-![img-dev-tools--snippets_michael_hladky](https://user-images.githubusercontent.com/10064416/163599288-7918c103-0297-415d-966e-1eca10a18d60.PNG)
+![img-dev-tools--snippets_michael_hladky](https://user-images.githubusercontent.com/10064416/163622952-ba8e0b03-fe96-4ffb-a8d9-4f7c4cb3442c.PNG)
 
 1. Open DevTools
 2. Select Sources Tab
@@ -115,24 +115,7 @@ To quickly check it in your browser open the DevTools "Sources" tab and click on
 7. Execute
 8. Check console
 
-
-```javascript
-const stylesString = `
- /* STYLES HERE */
-`
-const styleTag = document.createElement('style');
-styleTag.innerHTML = stylesString;
-document.head.appendChild(styleTag);
-
-const imgs = document.querySelectorAll('img, iframe'); 
-Array.from(imgs)
-  .forEach(i => {
-    if(!lcpMedia.includes(i)) {
-      
-    }
-    i.setAttribute('loading', 'lazy')
-  });
-```
+![img-measure-process--snippets_michael-hladky](https://user-images.githubusercontent.com/10064416/163622475-60ccd81f-8002-4535-9a03-90e20b3061cc.png)
 
 # Main Page
 
