@@ -15,7 +15,6 @@ img, video {
   contain: content;
   content-visibility: auto;
 }
-
 /* too-bar */
 nav.bb {
   height: 55px;
@@ -23,39 +22,47 @@ nav.bb {
   content-visibility:auto;
   contain-intrinsic-size: 55px;
 }
-
 /* all sections */
 #__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2 {
   contain: content;
   content-visibility: auto;
   contain-intrinsic-size: 300px;
 }
-
 /* hero text avatars*/
-.marketing-presence-widget.jsx-140043cc736fed23:nth-child(1):after {
-  background-image: url(https://avatars.observableusercontent.com/avatar/4b4606a6f4b81cdc32e2a3271381da5fad8ffdbd1089b14e89ebcfd1c98a11c0?s=128);
+.marketing-presence-widget.jsx-140043cc736fed23:after {
+  background-image: none !important;
 }
-.marketing-presence-widget.jsx-140043cc736fed23:nth-child(2):after {
-  background-image: url(https://avatars.observableusercontent.com/avatar/4b4606a…?s=128);
+
+.marketing-presence-widget.jsx-140043cc736fed23 {
+  positing: relative;
+}
+
+.marketing-presence-widget.jsx-140043cc736fed23 img.avatar {
+  top: -28px;
+  position: relative;
+  z-index: 10;
+  border-radius: 50% 50% 50% 3px;
 }
 
 /* carousels */
 .jsx-1511261573 > .jsx-1511261573 > .jsx-1511261573 {
   contain: strict;
   content-visibility: auto;
+  contain-intrinsic-size: 200px;
 }
-
+  
 /* cards */
 .carousel-notebook {
   contain: content;
   content-visibility: auto;
+  contain-intrinsic-size: 200px;
 }
-
+  
 /* LCP video */
 .mw-section video {
   background-image: url(https://static.observableusercontent.com/thumbnail/820c1ce779bde2347e128aab81a550e16f95126993729412583ac517dd0c2c1f.jpg);
 }
-
+  
 /* footer */
 footer {
   contain: content;
@@ -67,17 +74,21 @@ footer {
 
 **Scripting**
 
-```html
-<!-- At pageload `31` images are loaded, after relevant images are loaded lazy `14` are loaded. -->
-<img loading="lazy">
-```
-
 ```javascript
+
+// avatars
+document.querySelector('.marketing-presence-widget.jsx-140043cc736fed23:nth-child(1)')
+  .innerHTML = '<img class="avatar" width="32" height="32" src="https://avatars.observableusercontent.com/avatar/4b4606a6f4b81cdc32e2a3271381da5fad8ffdbd1089b14e89ebcfd1c98a11c0?s=128">';
+document.querySelector('.marketing-presence-widget.jsx-140043cc736fed23:nth-child(2)')
+  .innerHTML = '<img class="avatar" width="32" height="32" src="https://avatars2.githubusercontent.com/u/96189?v=4&s=128">';
+
+// images
+// At pageload `31` images are loaded, after relevant images are loaded lazy `14` are loaded
 const imgs = document.querySelectorAll('img, iframe'); 
 Array.from(imgs)
   .forEach(i => {
     // exclude LCP image
-    if() {
+    if(true || 'LPC NODE') {
       i.setAttribute('loading', 'lazy')
     }
   });
