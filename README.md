@@ -115,7 +115,8 @@ To get a good first overview let's start with the visible part in more detail.
 - tool-bar - `document.querySelector('nav.bb')`
 - section - `document.querySelectorAll('#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2')`
   - hero-section - `document.querySelector('#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2')`
-    - video (LCP) - document.querySelectorAll('.mw-section video') 
+    - avatars - `document.querySelectorAll('.marketing-presence-widget.jsx-140043cc736fed23:nth-child(1)')` or `:nth-child(2)` for second avatar 
+    - video (LCP) - `document.querySelectorAll('.mw-section video')` 
   - carousel - `document.querySelectorAll('.jsx-1511261573 > .jsx-1511261573 > .jsx-1511261573')`
   - DOM animation - `document.querySelector('.jsx-6e9c885e3fde48d5')`
 - footer - `document.querySelector('footer')`
@@ -511,7 +512,37 @@ Let's try to go with static CSS values and selectors.
 }
 ``` 
 
-Voila! The refetching is now gone and also a propperly sized image is used. 💪
+Voila!  💪 The refetching is now gone and also a propperly sized image is used, only the fetch priority is still on `High` as we use CSS `background-image`.
+
+As a last improvement I will edit the DOM structure a bit to get native lazy-loading and priority in place.
+
+```css
+/* reset background-image */
+.marketing-presence-widget.jsx-140043cc736fed23:after {
+  background-image: none !important;
+}
+
+.marketing-presence-widget.jsx-140043cc736fed23 {
+  positing: relative;
+}
+
+.marketing-presence-widget.jsx-140043cc736fed23 img.avatar {
+  top: -28px;
+  position: relative;
+  z-index: 10;
+  border-radius: 50% 50% 50% 3px;
+}
+```
+
+```javascript
+document.querySelector('.marketing-presence-widget.jsx-140043cc736fed23:nth-child(1)')
+  .innerHTML = '<img class="avatar" width="32" height="32" src="https://avatars.observableusercontent.com/avatar/4b4606a6f4b81cdc32e2a3271381da5fad8ffdbd1089b14e89ebcfd1c98a11c0?s=128">';
+
+document.querySelector('.marketing-presence-widget.jsx-140043cc736fed23:nth-child(2)')
+  .innerHTML = '<img class="avatar" width="32" height="32" src="https://avatars2.githubusercontent.com/u/96189?v=4&s=128">';
+```
+
+Perfect after this improvement they also have fetch priority `low`.
 
 
 # Resources
