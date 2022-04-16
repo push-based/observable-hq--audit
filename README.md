@@ -115,7 +115,7 @@ Create a snippet with the code above, execute it and measure the impact.
 
 ![img-observablehq-main-page_michael_hladky](https://user-images.githubusercontent.com/10064416/162594795-95c9ea5f-a61c-444c-a014-b40847dead89.PNG)
 
-The pages, from the first glims, contains lot's of images and I guess live demos of the editor. It took quite a while to load the LCP video, but maybe because I sit in the kitchen instead of my desk. 🙃
+The pages, from the first glims, contains lot's of images and I guess live demos of the editor. It took quite a while to load the LCP video, but maybe because I sit in the kitchen instead of my desk. 🙃   
 There, I always have bad connection. 💤
 
 To get a good first overview let's start with the visible part in more detail.
@@ -125,10 +125,6 @@ To get a good first overview let's start with the visible part in more detail.
 ![img-observablehq-main-page-areas_michael_hladky](https://user-images.githubusercontent.com/10064416/162594799-2cff5cb3-7ead-46cd-aca7-19d55df3646d.PNG)
 
 **Areas:**  
-The areas are collected through my audit. Whenever I was identifying an elemen I was also saving the selector here.
-I included the method e.g. `querySelector` to get the list of all relevant elements with the snippet.
-This will save me some time and I don't need to maintain it in DevtTool yet.
-
 - tool-bar - `document.querySelector('nav.bb')`
 - section - `document.querySelectorAll('#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2')`
   - hero-section - `document.querySelector('#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2')`
@@ -137,6 +133,11 @@ This will save me some time and I don't need to maintain it in DevtTool yet.
   - carousel - `document.querySelectorAll('.jsx-1511261573 > .jsx-1511261573 > .jsx-1511261573')`
   - DOM animation - `document.querySelector('.jsx-6e9c885e3fde48d5')`
 - footer - `document.querySelector('footer')`
+
+> **Tip:**  
+> The areas are collected through my audit. Whenever I was identifying an elemen I was also saving the selector here.
+> I included the method e.g. `querySelector` to get the list of all relevant elements with the snippet.
+> This will save me some time and I don't need to maintain it in DevtTool yet.
 
 ![img-observablehq-main-page-areas-detail-1_michael_hladky](https://user-images.githubusercontent.com/10064416/162594810-79308250-4d5e-4371-87e8-20caaf10d192.PNG)
 
@@ -183,7 +184,7 @@ This is how I performed the measures:
 4. Click on the  ▶  butto to execute the script
 5. Start profiling with `Ctrl + E` or the ⏹ button
 
-> **Tip: **
+> **Tip:**  
 > The `console` tab pop`s in after every script execution.
 > This is annoying because we have to click on the `Quick source` tab again.
 > To lessen the pain and live-hack it we can shrink the output area to the minimum.
@@ -199,10 +200,11 @@ This is how I performed the measures:
 
 To reproduce the measure:
 1. Setup the script below as snippet in DevTools -> Sources -> Snippets
-2. Setup tedTools as described in "Measure Process" above.
+2. Setup DevTools as described in "Measure Process" above.
 3. Start recording
 4. Execute script over "Quick source"
 5. Stop recording
+6. Analyse flames and save the profile if needed
 
 **dom-redraw.js**
 ```javascript
@@ -230,9 +232,9 @@ window.__pb_full_relayout_listener = true;
 }
 let runs = 0;
 const id = setInterval(() => {
-++runs === 10 && clearInterval(id) && console.log('relayout done!');
+++runs === 4 && clearInterval(id) && console.log('relayout done!');
 fullRedom();
-}, 1400);
+}, 2400);
 ```
 
 ### Page Recalculate  
@@ -245,6 +247,7 @@ To reproduce the measure:
 3. Start recording
 4. Execute script over "Quick source"
 5. Stop recording
+6. Analyse flames and save the profile if needed
 
 **full-relayout.js**
 ```javascript
@@ -282,6 +285,7 @@ To reproduce the measure:
 3. Start recording
 4. Execute script over "Quick source"
 5. Stop recording
+6. Analyse flames and save the profile if needed
 
 ```javascript
 // Scroll up down
@@ -317,7 +321,7 @@ To reproduce the measure just recorde the page without any interaction for some 
 After my first impression of the flames and the fact that I **can't touch code nor assets** I decided to focus first on the things I can **easily test and measure**.
 This includes runtime measures of DOM and CSS changes.
 
-Here the transfered list form my skretch paper as I was too lazy to start a readme right away. 
+Here the transfered list from my handwriting as I was too lazy to start a readme right away. 
 
 > **First Quick Findings**
 > 
@@ -335,7 +339,7 @@ Here the transfered list form my skretch paper as I was too lazy to start a read
 > - no compression
 > - wrong dimensions
 
-To be more productive I try to focus me audit process on the same technique across the page and then switch to the next one I think is applicable.
+To be more productive I try to focus the audit process on the same technique across the page and then switch to the next one I think is applicable.
 
 ## Phase 1 - Low hanging fruits & discovery
 
@@ -359,10 +363,7 @@ Let's give it a quick try 😁
 
 ```javascript
 const imgs = document.querySelectorAll('img');
-const eager = Array.from(imgs).forEach(i => i.setAttribute('loading', 'lazy);
-
-console.log(eager+ ' of ' + imgs.length + ' imgs eager (LCP included)');
-document.title= eager+ ' of ' + imgs.length + ' imgs eager (LCP included)';
+const eager = Array.from(imgs).forEach(i => i.setAttribute('loading', 'lazy); 
 ```
 
 At pageload `31` images are loaded, after all images are loaded lazy `13` are loaded.
@@ -384,7 +385,6 @@ I don't measure as I don't asume any big impact.
 The interactions with tool-bar elements did not show any animated changes nor dropdowns. The only thing interesting was, when I clicked the searchbox a full bage overlay showed up. At the beginning I did not see it but after some interaction I spotted a flicker in the tiny images of the headline. 
 
 ![img-observablehq-search_michael-hladky](https://user-images.githubusercontent.com/10064416/162595399-b200c764-77b2-4ac1-966e-4f933e126f6c.PNG)
-
 
 Let's make a note for the hero section to analyze this.
 
@@ -414,7 +414,7 @@ img, video {
 }
 ```
 
-As this most problbby will have an impact on other images and paint heave assets too, lets add another rule for all `img` and `video` tags: 
+As this most problbby will have an impact on other images and paint heavy assets too, let's add another rule for all `img` and `video` tags: 
 
 ```css
 .carousel-notebook {
@@ -438,7 +438,7 @@ Maybe a small improvement could be done with `will-change`? I have to understand
 
 ![img-observablehq-section-usage-identified_michael-hladky](https://user-images.githubusercontent.com/10064416/162597373-96476722-68c0-447f-8aa8-fba12fe0ef79.PNG)
 
-From what I understand now, the animation is driven by transform and some properties are translate. The animated elements are all contained by on container with fixed with and height. Some elements are animated out of the container border-box and faded out.
+From what I understand now, the animation is driven by transform and some properties are translate. The animated elements are all contained by on container with fixed `with` and `height`. Some elements are animated out of the container border-box and faded out.
 
 I can access all selected elements like this `document.querySelectorAll('.jsx-6e9c885e3fde48d5 > div')`. 
 
@@ -451,14 +451,14 @@ document.querySelector('#__next > .jsx-2b91b8133a45a7a2 > .jsx-2b91b8133a45a7a2'
 Array.from(document.querySelectorAll('.jsx-1511261573 > .jsx-1511261573 > .jsx-1511261573')).forEach(i => i.remove());
 ```
 
-As the dom changes and it's hard to make changes directly on the element in the Elements tab I first add a class that I can target:
+As the DOM changes and it's hard to make changes directly on the element in the Elements tab I first add a class that I can target:
 
 ```javascript
 // animated divs
 Array.from(document.querySelectorAll('.jsx-6e9c885e3fde48d5 > div')).forEach(i => i.classList.add('animated-elem'));
 ```
 
-Ok, unfortunately my default approach does not work, the class attribute is controled by javascript and I have to go with a `data` attribute:
+Ok, unfortunately my default approach does not work, the class attribute is controled by JavaScript and I have to go with a `data` attribute:
 
 ```javascript
 Array.from(document.querySelectorAll('.jsx-6e9c885e3fde48d5 > div')).forEach(i => i.setAttribute('data-xyz', 'inner'));
@@ -494,11 +494,11 @@ After some time spent with those 6 elements I did the following thing:
 ```
 
 I could not measure any impact clearly so I move on 🤷‍. 
-Neverthe less, I have now 2 scnippets to remove noise from the page. 🏆
+Neverthe less, I have now 2 snippets to remove noise from the page. 🏆
 
 **Footer**
 
-The footer is another clear candidate for our silver bullets ;), Lets see what we can have.
+The footer is another clear candidate for our silver bullets ;), Let's see what we can do.
 
 ```css
 footer {
@@ -508,23 +508,25 @@ footer {
 }
 ```
 
+Pretty nice we could even maintain the height exactly. 
+
 ## Phase 2 - View Port and LCP Detailled Look
 
 **Section - Hero**
 
-The hero section maintains a littla bit of fancy text and a video. 
+The hero section maintains a little bit of fancy text and a video. 
 
 From the toolbar review I have a note regards a flicker in the tiny images of the headline on the right. When openin and closing the search overlay I realized that some images are constantly loaded. 
 2 images visible in the small bubbles in the headline.
 
 ![img-observablehq-search-fetch_michael-hladky](https://user-images.githubusercontent.com/10064416/162595418-a4dbc55e-3808-4a00-a10c-c2b2035c3789.PNG)
 
-A second look in conparison to the rest of the resources showed that these 2 images are with far distance the biggest on the page. 🤣
-Due to the usage of CSS and the background-image attribute the priority is always `high` so there is no chance our LCP content gets first. 
+A second look in comparison to the rest of the resources showed that these 2 images are **with far distance the biggest** on the page. 🤣  
+Due to the usage of CSS and the background-image attribute the priority is always `high` so there is no chance our LCP content gets loaded first. 
 
 ![img-observablehq-search-network_michael-hladky](https://user-images.githubusercontent.com/10064416/163600935-ae0151a8-da8d-47e8-9a76-3b3d7c55ccbb.PNG)
 
-I assume it is triggeren by reacts CD and the usage of css variables as background image but iI'm not sure ATM. 
+I assume it is triggeren by react's CD and the usage of CSS variables as background image but I'm not sure ATM. 
 
 For now I will keep it with a note to research later...
 
@@ -552,10 +554,10 @@ background-color: red;
 
 ## Phase 3 - Hero section avatar images
 
-I'm back at the image flicker haha. This war gripping my attention from the beginning but I was not sure if it has enough potential to dig in deeper so early on. 
-Now I pretty satisfied with my first findings and can have **finally** a closer look here. 
+I'm back at the image flicker 🥰. This war gripping my attention from the beginning but I was not sure if it has enough potential to dig in deeper so early on. 
+Now that I am pretty satisfied with my first findings and can **finally** have a closer look here. 
 
-I realized I did not put the selector for the small bubbles containing the avatar imaeg in the doc before... 🙄 Again a turn with the element inspector and the console.
+I realized I did not put the selector for the small bubbles containing the avatar image in the doc before... 🙄 Again a turn with the element inspector ... meh! ... and the console.
 
 Here we go: 
 ```javascript
@@ -575,7 +577,7 @@ https://avatars2.githubusercontent.com/u/96189?v=4&s=128
 
 Ok. Now as I am prepared with some snippets let's finally dig.
 
-I will open the network tab to see if a block of those images has an impact.
+I will open the network tab to see if a block of those image URL's has an impact.
 
 ![img-observablehq-network-block-url_michael_hladky](https://user-images.githubusercontent.com/10064416/162598903-2920fbfe-fd31-4d38-a2e2-ddbd2f88cd6b.PNG)
 
@@ -585,7 +587,7 @@ Woof, only from observing it over the screen it is a drastic difference. Also th
 
 It definitely pays of to think about a solution here!
 
-My first try to change "something" was to just replace the css variable value, but it seems it is somewhere recalculated to the same value and set again... hmm.
+My first try to change "something" was to just replace the CSS variable value, but it seems it is somewhere recalculated to the same value and set again... hmm.
 
 ```css
 element.style {
@@ -605,7 +607,7 @@ Let's try to go with static CSS values and selectors.
 }
 ``` 
 
-Voila!  💪 The refetching is now gone and also a propperly sized image is used, only the fetch priority is still on `High` as we use CSS `background-image`.
+Voila! 💪 The refetching is now gone and also a propperly sized image is used, only the fetch priority is still on `High` as we use CSS `background-image`.
 
 As a last improvement I will edit the DOM structure a bit to get native lazy-loading and priority in place.
 
