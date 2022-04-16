@@ -644,9 +644,34 @@ Bam... I would say let's call it a day. 🌑
 The snippets to remeasure are now pretty nice to use and I'm excited to run the measures with the improvements and compare them after some 😴.
 
 # Optimized State
+### Page Refresh  
 
+We can't run this comparison easily so we skip it for now. 
 
+### Page Re-draw DOM  
+![img-observablehq-redom_after](https://user-images.githubusercontent.com/10064416/163669367-3104ffae-2efb-4507-8ad4-e6d51748cd52.PNG)
+
+**25ms** before 154ms
+
+### Page Recalculate  
+
+![img-observablehq-recalculate_after](https://user-images.githubusercontent.com/10064416/163669377-f6e8bfa2-7490-4b4d-9cf1-98593e874a22.PNG)
+
+**15.45ms** before **194ms**
+
+### Page Scroll  
+
+![img-observablehq-scroll-after](https://user-images.githubusercontent.com/10064416/163669381-fd3097ee-4439-4343-90b4-95777da6ac2c.PNG)
+
+No bissy areas anymore.
+
+### Page Idle    
+
+![img-observablehq-idle_after](https://user-images.githubusercontent.com/10064416/163669421-a31934eb-203b-4796-a6e7-6dfe5b761a27.PNG)
+
+**5ms** before 20ms
 
 # Resources
 - [Edited images of this audit as slide deck](https://docs.google.com/presentation/d/1x167yfcHr--3366FC1Lvr_YhzZ-ySyoGBlSjkBz8d94/edit?usp=sharing)
 - [Raw measures](/raw)
+
