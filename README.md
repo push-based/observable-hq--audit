@@ -6,8 +6,7 @@
 
 # TL;DR
 
-**Comparison**
-
+**Comparison - Flame charts**
 | Re-apply DOM | Recalculate styles |  
 | -- | -- |
 | ![img-observablehq-redom_comparison](https://user-images.githubusercontent.com/10064416/163671375-02204147-8f75-43d0-8484-b47d7f3abc36.PNG) | ![img-observablehq-recalculate_comparison](https://user-images.githubusercontent.com/10064416/163671372-bfbd8f40-39b2-4b90-b11f-a64e4130cf0e.PNG)   |
@@ -15,13 +14,14 @@
 | Scroll down and up again   | Idle   |  
 | -- | -- |
 | ![img-observablehq-scroll-comparison](https://user-images.githubusercontent.com/10064416/163671374-02a27d3e-e2cb-4333-9e37-1673e108f530.PNG) | ![img-observablehq-idle-comparison](https://user-images.githubusercontent.com/10064416/163671373-5ee69409-50e0-4290-bbb6-24cfaeb6b981.PNG) | 
-
-| Measure | Evarage Task  |TTB before | TTB after |
-| ------- | ------------- | --------- | --------- |
-| Re-apply DOM   |  232ms  |  0ms  |  232ms  |
-| Recalculate styles   |  232ms  |  232ms  |  232ms  |
-| Scroll down/up   |  232ms  |  232ms  |  232ms  |
-| Idle   |  232ms  |  232ms  |  232ms  |
+ 
+**Average Improvements in milliseconds**
+| Measure            | Ø Task before   | TTB before   | Ø Task after | TTB after   | Notes                                                   |
+| ------------------ | --------------  | ------------ | ------------ | ----------- | ------------------------------------------------------- |
+| Re-apply DOM       |  110ms / 160ms  | 90ms / 110ms | 27ms / 21ms  | 0ms         | numbers apply to add DOM task/ recalculate styles task  |
+| Recalculate styles |  230ms          | 180ms        | 18ms         | 0ms         | numbers apply to recalculate tasks                      |
+| Scroll down/up     |  60ms           | 11ms         | 9ms          | 0ms         | taksk of bissy sections                                 |
+| Idle               |  20ms           | 0ms          | 4ms          | 0ms         | n/a                                                     |  
 
 **Styles**
 
