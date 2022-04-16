@@ -6,6 +6,16 @@
 
 # TL;DR
 
+**Comparison**
+
+| Recalculate styles   | Re-apply DOM   |  
+| -- | -- |
+| ![img-observablehq-redom_comparison](https://user-images.githubusercontent.com/10064416/163671375-02204147-8f75-43d0-8484-b47d7f3abc36.PNG) | ![img-observablehq-recalculate_comparison](https://user-images.githubusercontent.com/10064416/163671372-bfbd8f40-39b2-4b90-b11f-a64e4130cf0e.PNG)   |
+
+| Scroll down and up again   | Idle   |  
+| -- | -- |
+| ![img-observablehq-scroll-comparison](https://user-images.githubusercontent.com/10064416/163671374-02a27d3e-e2cb-4333-9e37-1673e108f530.PNG) | ![img-observablehq-idle-comparison](https://user-images.githubusercontent.com/10064416/163671373-5ee69409-50e0-4290-bbb6-24cfaeb6b981.PNG) | 
+
 **Styles**
 
 ```html
