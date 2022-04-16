@@ -16,6 +16,13 @@
 | -- | -- |
 | ![img-observablehq-scroll-comparison](https://user-images.githubusercontent.com/10064416/163671374-02a27d3e-e2cb-4333-9e37-1673e108f530.PNG) | ![img-observablehq-idle-comparison](https://user-images.githubusercontent.com/10064416/163671373-5ee69409-50e0-4290-bbb6-24cfaeb6b981.PNG) | 
 
+| Measure | Evarage Task  |TTB before | TTB after |
+| ------- | ------------- | --------- | --------- |
+| Re-apply DOM   |  232ms  |  0ms  |  232ms  |
+| Recalculate styles   |  232ms  |  232ms  |  232ms  |
+| Scroll down/up   |  232ms  |  232ms  |  232ms  |
+| Idle   |  232ms  |  232ms  |  232ms  |
+
 **Styles**
 
 ```html
