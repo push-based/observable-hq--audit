@@ -172,7 +172,7 @@ The following measures where taken:
 
 **Measure Process**
 
-All measures are produced with small scripts I hold in my `DevTooly` -> `Snippets` tab.
+All measures are produced with small scripts I hold in my `DevTools` -> `Snippets` tab.
 
 This is how I performed the measures:
 
