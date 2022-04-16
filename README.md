@@ -671,7 +671,26 @@ No bissy areas anymore.
 
 **5ms** before 20ms
 
+
 # Resources
+
 - [Edited images of this audit as slide deck](https://docs.google.com/presentation/d/1x167yfcHr--3366FC1Lvr_YhzZ-ySyoGBlSjkBz8d94/edit?usp=sharing)
-- [Raw measures](/raw)
+
+## Timeline View Of Result
+
+- [Timeline - Recalculate styles before](https://chromedevtools.github.io/timeline-viewer/?loadTimelineFromURL=https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-recalc_before.json)
+- [Timeline - Redraw DOM styles before](https://chromedevtools.github.io/timeline-viewer/?loadTimelineFromURL=https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-redom_before.json)
+- [Timeline - Scroll before](https://chromedevtools.github.io/timeline-viewer/?loadTimelineFromURL=https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-scroll_before.json)
+- [Timeline - Idle before](https://chromedevtools.github.io/timeline-viewer/?loadTimelineFromURL=https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-idle_before.json)
+
+
+## Attachments with raw measurements
+
+> Raw files and screenshots of measurements can be found in the `/raw` directory.
+
+- [observablehq-recalc_before.json](https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-recalc_before.json)
+- [observablehq-redow_before.json](https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-redom_before.json)
+- [observablehq-scroll_before.json](https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-scroll_before.json)
+- [observablehq-idle_before.json](https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-idle_before.json)
+
 
