@@ -164,8 +164,9 @@ To get a good first overview let's start with the visible part in more detail.
 
 To start with our audit we need a reproduzeable way to measure the status quo, and in what conditions we took the measure.
 
-[webpagetest - lighthouse](https://www.webpagetest.org/result/220418_BiDcBT_8RK/)
-[webpagetest - performance test](https://www.webpagetest.org/result/220418_BiDcWY_8SD/)
+- [webpagetest - lighthouse before](https://www.webpagetest.org/result/220418_BiDcBT_8RK/)
+- [webpagetest - performance test before](https://www.webpagetest.org/result/220418_BiDcWY_8SD/)
+- [webpagetest - performance test after](https://www.webpagetest.org/result/220418_BiDcQX_8Y2/)
 ## Audit setup
 
 **Target**  
