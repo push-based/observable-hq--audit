@@ -575,7 +575,7 @@ background-color: red;
 ## Phase 3 - Hero section avatar images
 
 I'm back at the image flicker 🥰. This war gripping my attention from the beginning but I was not sure if it has enough potential to dig in deeper so early on. 
-Now that I am pretty satisfied with my first findings and can **finally** have a closer look here. 
+Now that I am pretty satisfied with my first findings I can **finally** have a closer look here. 
 
 I realized I did not put the selector for the small bubbles containing the avatar image in the doc before... 🙄 Again a turn with the element inspector ... meh! ... and the console.
 
