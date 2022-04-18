@@ -164,6 +164,8 @@ To get a good first overview let's start with the visible part in more detail.
 
 To start with our audit we need a reproduzeable way to measure the status quo, and in what conditions we took the measure.
 
+[webpagetest - lighthouse](https://www.webpagetest.org/result/220418_BiDcBT_8RK/)
+[webpagetest - performance test](https://www.webpagetest.org/result/220418_BiDcWY_8SD/)
 ## Audit setup
 
 **Target**  
@@ -578,10 +580,14 @@ I realized I did not put the selector for the small bubbles containing the avata
 
 Here we go: 
 ```javascript
-// avatar 1
+// avatar 1 - element
 document.querySelectorAll('.marketing-presence-widget.jsx-140043cc736fed23:nth-child(1)');
-// avatar 2
+// avatar 1 - URL
+https://static.observablehq.com/assets/annie-avatar.jpg
+// avatar 2 - element
 document.querySelectorAll('.marketing-presence-widget.jsx-140043cc736fed23:nth-child(2)');
+// avatar 2 - URL
+https://static.observablehq.com/assets/ramona-avatar.jpg
 ```
 Now as I remember, I wanted to use a random profile picture from a card to show case the impact. Let me do that right now where I am in the elements panel mood...
 
