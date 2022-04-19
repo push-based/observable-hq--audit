@@ -668,6 +668,18 @@ Perfect after this improvement they also have fetch priority `low` 🥳🥳🥳.
 Bam... I would say let's call it a day. 🌑
 The snippets to remeasure are now pretty nice to use and I'm excited to run the measures with the improvements and compare them after some 😴.
 
+...
+
+After I added the optimized measures and the TL;DR section I tried to somehow visualize the hero video impackt as it is a major improvement of this audit and therefore it should shine. 
+
+- fimstrip before
+- filstrip after dummy placeholder
+- with nice placeholder
+- with all optimizations
+
+<link rel="preload" as="image" href="">
+ 
+
 # Optimized State
 
 ## Base Measures
