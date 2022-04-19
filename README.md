@@ -674,6 +674,8 @@ After I added the optimized measures and the TL;DR section I tried to somehow vi
 
 - fimstrip before
 - filstrip after dummy placeholder
+![observable-hq--hero-video-placeholder--filmstrip-comparison](https://user-images.githubusercontent.com/10064416/164109075-a219a9c5-60a2-4b77-b2b3-d6df280e67c7.PNG)
+
 - with nice placeholder
 - with all optimizations
 
