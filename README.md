@@ -167,6 +167,7 @@ To start with our audit we need a reproduzeable way to measure the status quo, a
 - [webpagetest - lighthouse before](https://www.webpagetest.org/result/220418_BiDcBT_8RK/)
 - [webpagetest - performance test before](https://www.webpagetest.org/result/220418_BiDcWY_8SD/)
 - [webpagetest - performance test after](https://www.webpagetest.org/result/220418_BiDcQX_8Y2/)
+- [webpagetest - performance test avatar blocked](https://www.webpagetest.org/result/220419_AiDc0C_HG9/)
 ## Audit setup
 
 **Target**  
