@@ -679,8 +679,20 @@ After I added the optimized measures and the TL;DR section I tried to somehow vi
 - with nice placeholder
 - with all optimizations
 
-<link rel="preload" as="image" href="">
- 
+```javascript
+const parser = document.createElement('DIV');
+function parse(html) {
+    parser.innerHTML = html;
+    return parser.firstChild;
+}
+const v = parse('<video id="video" preload="metadata" src="https://static.observablehq.com/assets/videos/Notebook-Demo.mov" controls style="visibility: hidden; width: 0; height: 0; contain: strict; content-visibility: auto; top: -9000px;position: fixed;"></video>');
+const i = parse('<link rel="preload" as="image" href="https://static.observableusercontent.com/thumbnail/820c1ce779bde2347e128aab81a550e16f95126993729412583ac517dd0c2c1f.jpg">');
+const s = parse('<style>.mw-section video {background-image: url(https://static.observableusercontent.com/thumbnail/820c1ce779bde2347e128aab81a550e16f95126993729412583ac517dd0c2c1f.jpg);}</style>');
+
+document.body.prepend(s);
+document.body.prepend(v);
+document.body.prepend(i);
+```
 
 # Optimized State
 
