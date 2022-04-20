@@ -168,6 +168,7 @@ To start with our audit we need a reproduzeable way to measure the status quo, a
 - [webpagetest - performance test before](https://www.webpagetest.org/result/220418_BiDcWY_8SD/)
 - [webpagetest - performance test after](https://www.webpagetest.org/result/220418_BiDcQX_8Y2/)
 - [webpagetest - performance test avatar blocked](https://www.webpagetest.org/result/220419_AiDc0C_HG9/)
+- [webpagetest - performance test preload img & video](https://www.webpagetest.org/result/220419_AiDc80_J8T/)
 ## Audit setup
 
 **Target**  
