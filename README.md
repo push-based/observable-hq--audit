@@ -713,7 +713,8 @@ const s = parse("<style>.mw-section video {background-image: url('data:image/jpe
 document.body.prepend(s);
 document.body.prepend(v);
 ```
- ![observable-hq--hero-section--filmstrip-comparison](https://user-images.githubusercontent.com/10064416/164124065-7988130d-f800-4eeb-8189-1d9dad9d4567.PNG)
+ 
+![observable-hq--hero-section--filmstrip-comparison](https://user-images.githubusercontent.com/10064416/164124797-baf781dc-262b-4f04-ab55-081faef5a927.PNG)
 
  
 
