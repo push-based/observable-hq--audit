@@ -6,9 +6,8 @@
 
 # TL;DR
 
-**Comparison - Filmstrip**
-https://www.webpagetest.org/result/220420_BiDcKN_497/
-
+**Comparison - Filmstrip**  
+![observable-hq--filmstrip-comparison](https://user-images.githubusercontent.com/10064416/164160130-eff89ca9-d054-4673-bda0-a875eacedc27.PNG)
 
 **Comparison - Flame charts**
 | Re-apply DOM | Recalculate styles |  
@@ -139,6 +138,7 @@ This is how I performed the measures:
 > By doing this we can have a short distance between the tabs and the execute button.
 
 ### Filmstrip Pageload  
+
 ![observable-hq--filmstrip-before](https://user-images.githubusercontent.com/10064416/164156172-6c3fb7b1-2cf5-4983-ac6e-253320c62cd8.PNG)
 
 ### Page Refresh  
@@ -609,14 +609,11 @@ After I added the optimized measures and the TL;DR section I tried to somehow vi
 Let's use filmstrips to visualize the impact:
 
 **Before**
-![fimstrip before]()
+![observable-hq--filmstrip-before](https://user-images.githubusercontent.com/10064416/164159488-7995d572-489f-49f0-8c06-7d899c06efaf.PNG)
 
 I started by fixing the initial height of the image with `min-height:427px` to get less visual changes measures and a besser UX.
 
 **Placeholder polishing**
-
-![observable-hq--hero-video-placeholder--filmstrip-comparison](https://user-images.githubusercontent.com/10064416/164109075-a219a9c5-60a2-4b77-b2b3-d6df280e67c7.PNG)
-
 
 To make the smithc from the placeholder to the video less visible I create a custom placeholder image.
 I make a screenshot, open [squoosh.app](https://squoosh.app/editor) upload my image and start tewaking until I have around 9KB (initially it was 105KB) and used [www.base64-image.de](https://www.base64-image.de/) to make it a base64 string.
@@ -624,18 +621,17 @@ I make a screenshot, open [squoosh.app](https://squoosh.app/editor) upload my im
 I started to preload it to get a faster paint and after some measures i decided to inline it. Way faster and easier to apply.
 The `background-image: url()` is used here.
 
-![fimstrip before]()
-
 **Video**
 
 To improve the video loading I started to experiment with preloading attributes on the image, but as this will still wait to fetch until the DOM is fully parsed i went with `<link rel="preload" as="fetch" href="https://static.observablehq.com/assets/videos/Notebook-Demo.mov">`.
 
+I'm nervouve... :)
+
+![observable-hq--filmstrip-comparison](https://user-images.githubusercontent.com/10064416/164160130-eff89ca9-d054-4673-bda0-a875eacedc27.PNG)
+
 REALLY NICE!!! 🔥🔥🔥
 
-![fimstrip before]()
-
-This nice improfement row deserves a image showing the evolution of this improvement.
-
+This nice improfement series deserves a image showing the evolution of this improvement.
 
 ![observable-hq--hero-section--filmstrip-comparison](https://user-images.githubusercontent.com/10064416/164124797-baf781dc-262b-4f04-ab55-081faef5a927.PNG)
 
@@ -644,7 +640,6 @@ This nice improfement row deserves a image showing the evolution of this improve
 
 #### Be happy I used a `<details>` element!
 
-```javascript
 ```javascript
 const parser = document.createElement('DIV');
 function parse(html) {
@@ -660,14 +655,6 @@ document.body.prepend(s);
 </p>
 </details>
 
-
-- [webpagetest - lighthouse before](https://www.webpagetest.org/result/220418_BiDcBT_8RK/)
-- [webpagetest - performance test before](https://www.webpagetest.org/result/220418_BiDcWY_8SD/)
-- [webpagetest - performance test after](https://www.webpagetest.org/result/220418_BiDcQX_8Y2/)
-- [webpagetest - performance test avatar blocked](https://www.webpagetest.org/result/220419_AiDc0C_HG9/)
-- [webpagetest - performance test preload img & video](https://www.webpagetest.org/result/220419_AiDc80_J8T/)
-- [webpagetest - performance test hero section comparison](https://www.webpagetest.org/video/compare.php?tests=220420_BiDcZZ_GM,220420_AiDc2E_JN,220420_AiDcC1_JP,220420_AiDc79_JQ)
- 
  ...  
  
 > 🗣 Memo to myself: 
@@ -676,6 +663,10 @@ document.body.prepend(s);
 # Optimized State
 
 ## Base Measures
+
+### Filmstrip Pageload
+
+![observable-hq--filmstrip-comparison](https://user-images.githubusercontent.com/10064416/164160130-eff89ca9-d054-4673-bda0-a875eacedc27.PNG)
 
 ### Page Refresh  
 
