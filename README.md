@@ -4,6 +4,43 @@
 
 ---
 
+<!-- toc -->
+
+- [Audit setup](#audit-setup)
+- [Base Measures](#base-measures)
+  - [Filmstrip Pageload](#filmstrip-pageload)
+  - [Page Refresh](#page-refresh)
+  - [Page Re-draw DOM](#page-re-draw-dom)
+  - [Page Recalculate](#page-recalculate)
+  - [Page Scroll](#page-scroll)
+  - [Page Idle](#page-idle)
+- [First Pokes](#first-pokes)
+- [Phase 1 - Low hanging fruits & discovery](#phase-1---low-hanging-fruits--discovery)
+  - [`loading`](#loading)
+  - [`contain` and `content-visibility`](#contain-and-content-visibility)
+- [Phase 2 - View Port and LCP Detailled Look](#phase-2---view-port-and-lcp-detailled-look)
+- [Phase 3 - Hero section avatar images](#phase-3---hero-section-avatar-images)
+- [Phase 4 - Hero section video](#phase-4---hero-section-video)
+- [Base Measures](#base-measures-1)
+  - [Filmstrip Pageload](#filmstrip-pageload-1)
+  - [Page Refresh](#page-refresh-1)
+  - [Page Re-draw DOM](#page-re-draw-dom-1)
+  - [Page Recalculate](#page-recalculate-1)
+  - [Page Scroll](#page-scroll-1)
+  - [Page Idle](#page-idle-1)
+- [Comparison](#comparison)
+  - [Filmstrip Pageload](#filmstrip-pageload-2)
+  - [Page Re-draw DOM](#page-re-draw-dom-2)
+  - [Page Recalculate](#page-recalculate-2)
+  - [Page Scroll](#page-scroll-2)
+  - [Page Idle](#page-idle-2)
+- [Timeline View Of Result](#timeline-view-of-result)
+- [Attachments with raw measurements](#attachments-with-raw-measurements)
+
+<!-- tocstop -->
+
+---
+
 # TL;DR
 
 **Comparison - Filmstrip**  
@@ -604,6 +641,8 @@ The snippets to remeasure are now pretty nice to use and I'm excited to run the 
 
 ...
 
+## Phase 4 - Hero section video
+
 After I added the optimized measures and the TL;DR section I tried to somehow visualize the hero video impackt as it is a major improvement of this audit and therefore it should shine. 
 
 Let's use filmstrips to visualize the impact:
@@ -638,7 +677,7 @@ This nice improfement series deserves a image showing the evolution of this impr
 <details><summary>Heroscetion final snippet</summary>
 <p>
 
-#### Be happy I used a `<details>` element!
+**Be happy I used a `<details>` element!**  
 
 ```javascript
 const parser = document.createElement('DIV');
@@ -662,58 +701,56 @@ document.body.prepend(s);
 
 # Optimized State
 
-## Base Measures
-
-### Filmstrip Pageload
+## Filmstrip Pageload
 
 ![observable-hq--filmstrip-after](https://user-images.githubusercontent.com/10064416/164162065-1c0f1c1b-d9f4-4f3e-af87-a695001af574.PNG)
 
-### Page Refresh  
+## Page Refresh  
 
 We can't run this comparison easily so we skip it for now. 
 
-### Page Re-draw DOM  
+## Page Re-draw DOM  
 ![img-observablehq-redom_after](https://user-images.githubusercontent.com/10064416/163669367-3104ffae-2efb-4507-8ad4-e6d51748cd52.PNG)
 
 **25ms** before 154ms
 
-### Page Recalculate  
+## Page Recalculate  
 
 ![img-observablehq-recalculate_after](https://user-images.githubusercontent.com/10064416/163669377-f6e8bfa2-7490-4b4d-9cf1-98593e874a22.PNG)
 
 **15.45ms** before **194ms**
 
-### Page Scroll  
+## Page Scroll  
 
 ![img-observablehq-scroll-after](https://user-images.githubusercontent.com/10064416/163669381-fd3097ee-4439-4343-90b4-95777da6ac2c.PNG)
 
 No bissy areas anymore.
 
-### Page Idle    
+## Page Idle    
 
 ![img-observablehq-idle_after](https://user-images.githubusercontent.com/10064416/163669421-a31934eb-203b-4796-a6e7-6dfe5b761a27.PNG)
 
 **5ms** before 20ms
 
-## Comparison
+# Comparison
 
-### Filmstrip Pageload
+## Filmstrip Pageload
 
 ![observable-hq--filmstrip-comparison](https://user-images.githubusercontent.com/10064416/164160130-eff89ca9-d054-4673-bda0-a875eacedc27.PNG)
 
-### Page Re-draw DOM  
+## Page Re-draw DOM  
 
 ![img-observablehq-redom_comparison](https://user-images.githubusercontent.com/10064416/163671375-02204147-8f75-43d0-8484-b47d7f3abc36.PNG)
 
-### Page Recalculate  
+## Page Recalculate  
 
 ![img-observablehq-recalculate_comparison](https://user-images.githubusercontent.com/10064416/163671372-bfbd8f40-39b2-4b90-b11f-a64e4130cf0e.PNG)
 
-### Page Scroll  
+## Page Scroll  
 
 ![img-observablehq-scroll-comparison](https://user-images.githubusercontent.com/10064416/163671374-02a27d3e-e2cb-4333-9e37-1673e108f530.PNG)
 
-### Page Idle    
+## Page Idle    
 
 ![img-observablehq-idle-comparison](https://user-images.githubusercontent.com/10064416/163671373-5ee69409-50e0-4290-bbb6-24cfaeb6b981.PNG)
 
@@ -738,5 +775,9 @@ No bissy areas anymore.
 - [observablehq-redow_before.json](https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-redom_before.json)
 - [observablehq-scroll_before.json](https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-scroll_before.json)
 - [observablehq-idle_before.json](https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-idle_before.json)
+- [observablehq-recalc_after.json](https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-recalc_after.json)
+- [observablehq-redow_after.json](https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-redom_after.json)
+- [observablehq-scroll_after.json](https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-scroll_after.json)
+- [observablehq-idle_after.json](https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-idle_after.json)
 
 

@@ -1,0 +1,24 @@
+{
+  "name": "observable-hq--audit",
+  "version": "1.0.0",
+  "description": "Performacne Audit - Observable HQ. This is open source learning material for the field of web performance.",
+  "main": "index.js",
+  "scripts": {
+    "update": "npx markdown-toc-gen update ./README.MD"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/push-based/observable-hq--audit.git"
+  },
+  "keywords": [
+    "web-performance",
+    "performance",
+    "performance-audit"
+  ],
+  "author": "Michael Hladky",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/push-based/observable-hq--audit/issues"
+  },
+  "homepage": "https://github.com/push-based/observable-hq--audit#readme"
+}
