@@ -169,6 +169,7 @@ To start with our audit we need a reproduzeable way to measure the status quo, a
 - [webpagetest - performance test after](https://www.webpagetest.org/result/220418_BiDcQX_8Y2/)
 - [webpagetest - performance test avatar blocked](https://www.webpagetest.org/result/220419_AiDc0C_HG9/)
 - [webpagetest - performance test preload img & video](https://www.webpagetest.org/result/220419_AiDc80_J8T/)
+- [webpagetest - performance test hero section comparison](https://www.webpagetest.org/video/compare.php?tests=220420_BiDcZZ_GM,220420_AiDc2E_JN,220420_AiDcC1_JP,220420_AiDc79_JQ)
 ## Audit setup
 
 **Target**  
@@ -712,6 +713,9 @@ const s = parse("<style>.mw-section video {background-image: url('data:image/jpe
 document.body.prepend(s);
 document.body.prepend(v);
 ```
+ ![observable-hq--hero-section--filmstrip-comparison](https://user-images.githubusercontent.com/10064416/164124065-7988130d-f800-4eeb-8189-1d9dad9d4567.PNG)
+
+ 
 
 </p>
 </details>
