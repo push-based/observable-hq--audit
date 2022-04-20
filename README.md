@@ -6,6 +6,10 @@
 
 # TL;DR
 
+**Comparison - Filmstrip**
+https://www.webpagetest.org/result/220420_BiDcKN_497/
+
+
 **Comparison - Flame charts**
 | Re-apply DOM | Recalculate styles |  
 | -- | -- |
@@ -133,6 +137,9 @@ This is how I performed the measures:
 > This is annoying because we have to click on the `Quick source` tab again.
 > To lessen the pain and live-hack it we can shrink the output area to the minimum.
 > By doing this we can have a short distance between the tabs and the execute button.
+
+### Filmstrip Pageload  
+![observable-hq--filmstrip-before](https://user-images.githubusercontent.com/10064416/164156172-6c3fb7b1-2cf5-4983-ac6e-253320c62cd8.PNG)
 
 ### Page Refresh  
 
@@ -612,7 +619,7 @@ I started by fixing the initial height of the image with `min-height:427px` to g
 
 
 To make the smithc from the placeholder to the video less visible I create a custom placeholder image.
-I make a screenshot, open [squoosh.app](https://squoosh.app/editor) upload my image and start tewaking until I have around 9KB (initially it was 105KB).
+I make a screenshot, open [squoosh.app](https://squoosh.app/editor) upload my image and start tewaking until I have around 9KB (initially it was 105KB) and used [www.base64-image.de](https://www.base64-image.de/) to make it a base64 string.
 
 I started to preload it to get a faster paint and after some measures i decided to inline it. Way faster and easier to apply.
 The `background-image: url()` is used here.
