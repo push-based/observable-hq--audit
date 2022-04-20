@@ -666,7 +666,7 @@ document.body.prepend(s);
 
 ### Filmstrip Pageload
 
-![observable-hq--filmstrip-comparison](https://user-images.githubusercontent.com/10064416/164160130-eff89ca9-d054-4673-bda0-a875eacedc27.PNG)
+![observable-hq--filmstrip-after](https://user-images.githubusercontent.com/10064416/164162065-1c0f1c1b-d9f4-4f3e-af87-a695001af574.PNG)
 
 ### Page Refresh  
 
@@ -696,6 +696,10 @@ No bissy areas anymore.
 **5ms** before 20ms
 
 ## Comparison
+
+### Filmstrip Pageload
+
+![observable-hq--filmstrip-comparison](https://user-images.githubusercontent.com/10064416/164160130-eff89ca9-d054-4673-bda0-a875eacedc27.PNG)
 
 ### Page Re-draw DOM  
 
