@@ -675,7 +675,6 @@ This nice improfement series deserves a image showing the evolution of this impr
 <details><summary>Heroscetion final snippet</summary>
 <p>
 
-**Be happy I used a `<details>` element!**  
 
 ```javascript
 const parser = document.createElement('DIV');
