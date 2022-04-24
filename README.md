@@ -44,6 +44,12 @@
 **Comparison - Filmstrip**  
 ![observable-hq--filmstrip-comparison](https://user-images.githubusercontent.com/10064416/164160130-eff89ca9-d054-4673-bda0-a875eacedc27.PNG)
 
+**FP/LCP Hero Video /Idle**
+| Measure            | FP       | LCP - Hero Video | Idle         |
+| ------------------ | -------- | ---------------- | ------------ |
+| Before             | 2300ms   | 6800ms           | 6800ms       |
+| After              | 2300ms   | 2300ms           | 4100ms       |
+
 **Comparison - Flame charts**
 | Re-apply DOM | Recalculate styles |  
 | -- | -- |
