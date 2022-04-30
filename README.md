@@ -173,7 +173,7 @@ This is how I performed the measures:
 5. Start profiling with `Ctrl + E` or the ⏹ button
 
 > **Tip:**  
-> The `console` tab pop`s in after every script execution.
+> The `console` tab pops in after every script execution.
 > This is annoying because we have to click on the `Quick source` tab again.
 > To lessen the pain and live-hack it we can shrink the output area to the minimum.
 > By doing this we can have a short distance between the tabs and the execute button.
