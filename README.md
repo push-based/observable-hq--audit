@@ -143,7 +143,7 @@ I took the Observable HQ site for the audit as it is a really nice tool and I co
 [http://observablehq.com](http://observablehq.com)
 
 **Conditions**  
-I used "native throtteling" in this audit 🤣, which means all my measures are done in my kitchen with flaky internet connection and no power plug in. 😅
+I used "native throttling" in this audit 🤣, which means all my measures are done in my kitchen with flaky internet connection and no power plug in. 😅
 The only thing I made sure was to have everything open in incognito mode.
 
 **Device**  
