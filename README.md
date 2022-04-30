@@ -313,12 +313,12 @@ To reproduce the measure just record the page without any interaction for some t
 After my first impression of the flames and the fact that I **can't touch code nor assets** I decided to focus first on the things I can **easily test and measure**.
 This includes runtime measures of DOM and CSS changes.
 
-Here the transfered list from my handwriting as I was too lazy to start a readme right away. 
+Here the transferred list from my handwriting as I was too lazy to start a readme right away. 
 
 > **First Quick Findings**
 > 
 > Scripting:
-> - script dirven animations
+> - script driven animations
 > - bad lib for DOM animation
 > 
 > DOM & Styles:
@@ -337,7 +337,7 @@ To be more productive I try to focus the audit process on the same technique acr
 
 ### `loading`
 
-After a look in the delivered HTML I have little hope we can land an impact with lazy loading resources as they already have it in use pretty much every where.
+After a look in the delivered HTML I have a little hope we can land an impact with lazy loading resources as they already have it in use pretty much every where.
 
 Let's quickly check the images without loading lazy on the page... 
 
@@ -384,7 +384,7 @@ Let's make a note for the hero section to analyze this.
 
 The majority of the pages content is organized in sections with mid size DOM size. In general the site is media heavy but there are some specific sections containing more relevant animation or media we could have a look at. 
 
-We can try if their content is staiy stable if we apply `content-visibility:auto`... It is quite a hick up in the scrollbar, an intrinsic size of `300px` makes it way better. Now a quick check on mobile... It's, at least with touchpad and laptop noticable that the scroll is a bit janky, but lets keep it for now and take a measure.
+We can try if their content is stay stable if we apply `content-visibility:auto`... It is quite a hick up in the scrollbar, an intrinsic size of `300px` makes it way better. Now a quick check on mobile... It's, at least with touchpad and laptop noticable that the scroll is a bit janky, but lets keep it for now and take a measure.
 
 Looks good! Recalculate styles and redom shows pretty nice improvements already.
 
@@ -430,7 +430,7 @@ Maybe a small improvement could be done with `will-change`? I have to understand
 
 ![img-observablehq-section-usage-identified_michael-hladky](https://user-images.githubusercontent.com/10064416/162597373-96476722-68c0-447f-8aa8-fba12fe0ef79.PNG)
 
-From what I understand now, the animation is driven by transform and some properties are translated. The animated elements are all contained by on container with fixed `with` and `height`. Some elements are animated out of the container border-box and faded out.
+From what I understand now, the animation is driven by transform and some properties are translated. The animated elements are all contained by on container with fixed `width` and `height`. Some elements are animated out of the container border-box and faded out.
 
 I can access all selected elements like this `document.querySelectorAll('.jsx-6e9c885e3fde48d5 > div')`. 
 
@@ -678,7 +678,7 @@ This nice improvement series deserves a image showing the evolution of this impr
 
 ![observable-hq--hero-section--filmstrip-comparison](https://user-images.githubusercontent.com/10064416/164124797-baf781dc-262b-4f04-ab55-081faef5a927.PNG)
 
-<details><summary>Heroscetion final snippet</summary>
+<details><summary>Herosection final snippet</summary>
 <p>
 
 
