@@ -124,7 +124,7 @@ To get a good first overview let's start with the visible part in more detail.
 > **Tip:**  
 > The areas are collected through my audit. Whenever I was identifying an element I was also saving the selector here.
 > I included the method e.g. `querySelector` to get the list of all relevant elements with the snippet.
-> This will save me some time and I don't need to maintain it in DevtTool yet.
+> This will save me some time and I don't need to maintain it in DevTool yet.
 
 ![img-observablehq-main-page-areas-detail-1_michael_hladky](https://user-images.githubusercontent.com/10064416/162594810-79308250-4d5e-4371-87e8-20caaf10d192.PNG)
 
