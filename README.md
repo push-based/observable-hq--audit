@@ -3,15 +3,15 @@
 ![img-observablehq-audit-cover_michael_hladky](https://user-images.githubusercontent.com/10064416/162602176-ac0f5194-2933-47c1-9e39-fbe574eeec4a.PNG)
 
 ---
-
+ 
 <!-- toc -->
 
 - [Audit setup](#audit-setup)
 - [Base Measures](#base-measures)
-  - [Filmstrip Pageload](#filmstrip-pageload)
-  - [Page Refresh](#page-refresh)
-  - [Page Re-draw DOM](#page-re-draw-dom)
-  - [Page Recalculate](#page-recalculate)
+  - [Filmstrip Pageload unoptimized](#filmstrip-pageload-unoptimized)
+  - [Page Refresh unoptimized](#page-refresh-unoptimized)
+  - [Page Re-draw DOM unoptimized](#page-re-draw-dom-unoptimized)
+  - [Page Recalculate unoptimized](#page-recalculate-unoptimized)
   - [Page Scroll](#page-scroll)
   - [Page Idle](#page-idle)
 - [First Pokes](#first-pokes)
@@ -21,25 +21,27 @@
 - [Phase 2 - View Port and LCP Detailled Look](#phase-2---view-port-and-lcp-detailled-look)
 - [Phase 3 - Hero section avatar images](#phase-3---hero-section-avatar-images)
 - [Phase 4 - Hero section video](#phase-4---hero-section-video)
-- [Filmstrip Pageload](#filmstrip-pageload-1)
-- [Page Refresh](#page-refresh-1)
-- [Page Re-draw DOM](#page-re-draw-dom-1)
-- [Page Recalculate](#page-recalculate-1)
-- [Page Scroll](#page-scroll-1)
-- [Page Idle](#page-idle-1)
-- [Filmstrip Pageload](#filmstrip-pageload-2)
-- [Page Re-draw DOM](#page-re-draw-dom-2)
-- [Page Recalculate](#page-recalculate-2)
-- [Page Scroll](#page-scroll-2)
-- [Page Idle](#page-idle-2)
-- [Timeline View Of Result](#timeline-view-of-result)
-- [Attachments with raw measurements](#attachments-with-raw-measurements)
+- [Filmstrip Pageload optimized](#filmstrip-pageload-optimized)
+- [Page Refresh optimized](#page-refresh-optimized)
+- [Page Re-draw DOM optimized](#page-re-draw-dom-optimized)
+- [Page Recalculate optimized](#page-recalculate-optimized)
+- [Page Scroll optimized](#page-scroll-optimized)
+- [Page Idle optimized](#page-idle-optimized)
+- [Filmstrip Pageload comparison](#filmstrip-pageload-comparison)
+- [Page Re-draw DOM comparison](#page-re-draw-dom-comparison)
+- [Page Recalculate comparison](#page-recalculate-comparison)
+- [Page Scroll comparison](#page-scroll-comparison)
+- [Page Idle comparison](#page-idle-comparison)
+- [Attachments](#attachments)
+  - [Performance profiles](#performance-profiles)
 
 <!-- tocstop -->
 
 ---
 
-# TL;DR
+# TL;DR  
+
+köpijpojpo
 
 **Comparison - Filmstrip**  
 ![observable-hq--filmstrip-comparison](https://user-images.githubusercontent.com/10064416/164160130-eff89ca9-d054-4673-bda0-a875eacedc27.PNG)
@@ -172,15 +174,15 @@ This is how I performed the measures:
 > To lessen the pain and live-hack it we can shrink the output area to the minimum.
 > By doing this we can have a short distance between the tabs and the execute button.
 
-### Filmstrip Pageload  
+### Filmstrip Pageload unoptimized  
 
 ![observable-hq--filmstrip-before](https://user-images.githubusercontent.com/10064416/164156172-6c3fb7b1-2cf5-4983-ac6e-253320c62cd8.PNG)
 
-### Page Refresh  
+### Page Refresh unoptimized  
 
 ![img-observablehq-refresh_before](https://user-images.githubusercontent.com/10064416/162595144-c52a5612-b9ca-4457-836d-e586b0b7659f.PNG)
 
-### Page Re-draw DOM  
+### Page Re-draw DOM unoptimized  
 
 ![img-observablehq-redom_before](https://user-images.githubusercontent.com/10064416/162595154-dd7da7bd-872e-436e-923b-f382e802dadc.PNG)
 
@@ -223,7 +225,7 @@ fullRedom();
 }, 2400);
 ```
 
-### Page Recalculate  
+### Page Recalculate unoptimized  
 
 ![img-observablehq-recalculate_before](https://user-images.githubusercontent.com/10064416/162595151-8eee0c6f-0896-4993-b0df-7b3bbc6f690f.PNG)
 
@@ -301,6 +303,8 @@ console.log('scroll done!');
 To reproduce the measure just recorde the page without any interaction for some time.
 
 # Audit Documentation
+
+In the following I will document the different phases of the audit including my thought processes.
 
 ## First Pokes
 
@@ -699,32 +703,34 @@ document.body.prepend(s);
 
 # Optimized State
 
-## Filmstrip Pageload
+Measures after application of all optimizations
+
+## Filmstrip Pageload optimized
 
 ![observable-hq--filmstrip-after](https://user-images.githubusercontent.com/10064416/164162065-1c0f1c1b-d9f4-4f3e-af87-a695001af574.PNG)
 
-## Page Refresh  
+## Page Refresh optimized
 
 We can't run this comparison easily so we skip it for now. 
 
-## Page Re-draw DOM  
+## Page Re-draw DOM optimized  
 ![img-observablehq-redom_after](https://user-images.githubusercontent.com/10064416/163669367-3104ffae-2efb-4507-8ad4-e6d51748cd52.PNG)
 
 **25ms** before 154ms
 
-## Page Recalculate  
+## Page Recalculate optimized   
 
 ![img-observablehq-recalculate_after](https://user-images.githubusercontent.com/10064416/163669377-f6e8bfa2-7490-4b4d-9cf1-98593e874a22.PNG)
 
 **15.45ms** before **194ms**
 
-## Page Scroll  
+## Page Scroll optimized    
 
 ![img-observablehq-scroll-after](https://user-images.githubusercontent.com/10064416/163669381-fd3097ee-4439-4343-90b4-95777da6ac2c.PNG)
 
 No bissy areas anymore.
 
-## Page Idle    
+## Page Idle optimized    
 
 ![img-observablehq-idle_after](https://user-images.githubusercontent.com/10064416/163669421-a31934eb-203b-4796-a6e7-6dfe5b761a27.PNG)
 
@@ -732,50 +738,50 @@ No bissy areas anymore.
 
 # Comparison
 
-## Filmstrip Pageload
+Measurements in comparison
+
+## Filmstrip Pageload comparison
 
 ![observable-hq--filmstrip-comparison](https://user-images.githubusercontent.com/10064416/164160130-eff89ca9-d054-4673-bda0-a875eacedc27.PNG)
 
-## Page Re-draw DOM  
+## Page Re-draw DOM comparison  
 
 ![img-observablehq-redom_comparison](https://user-images.githubusercontent.com/10064416/163671375-02204147-8f75-43d0-8484-b47d7f3abc36.PNG)
 
-## Page Recalculate  
+## Page Recalculate comparison  
 
 ![img-observablehq-recalculate_comparison](https://user-images.githubusercontent.com/10064416/163671372-bfbd8f40-39b2-4b90-b11f-a64e4130cf0e.PNG)
 
-## Page Scroll  
+## Page Scroll comparison  
 
 ![img-observablehq-scroll-comparison](https://user-images.githubusercontent.com/10064416/163671374-02a27d3e-e2cb-4333-9e37-1673e108f530.PNG)
 
-## Page Idle    
+## Page Idle comparison 
 
 ![img-observablehq-idle-comparison](https://user-images.githubusercontent.com/10064416/163671373-5ee69409-50e0-4290-bbb6-24cfaeb6b981.PNG)
 
 
-# Resources
+# Resources 
 
 - [Edited images of this audit as slide deck](https://docs.google.com/presentation/d/1x167yfcHr--3366FC1Lvr_YhzZ-ySyoGBlSjkBz8d94/edit?usp=sharing)
 
-## Timeline View Of Result
-
-- [Timeline - Recalculate styles before](https://chromedevtools.github.io/timeline-viewer/?loadTimelineFromURL=https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-recalc_before.json)
-- [Timeline - Redraw DOM styles before](https://chromedevtools.github.io/timeline-viewer/?loadTimelineFromURL=https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-redom_before.json)
-- [Timeline - Scroll before](https://chromedevtools.github.io/timeline-viewer/?loadTimelineFromURL=https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-scroll_before.json)
-- [Timeline - Idle before](https://chromedevtools.github.io/timeline-viewer/?loadTimelineFromURL=https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-idle_before.json)
-
-
-## Attachments with raw measurements
+## Attachments 
 
 > Raw files and screenshots of measurements can be found in the `/raw` directory.
 
-- [observablehq-recalc_before.json](https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-recalc_before.json)
-- [observablehq-redow_before.json](https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-redom_before.json)
-- [observablehq-scroll_before.json](https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-scroll_before.json)
-- [observablehq-idle_before.json](https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-idle_before.json)
-- [observablehq-recalc_after.json](https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-recalc_after.json)
-- [observablehq-redow_after.json](https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-redom_after.json)
-- [observablehq-scroll_after.json](https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-scroll_after.json)
-- [observablehq-idle_after.json](https://raw.githubusercontent.com/push-based/observable-hq--audit/master/raw/observablehq-idle_after.json)
+### Performance profiles
 
+> Raw performance profiles can be found in the `/raw` directory and viewed in GitHub or in the performance view locally or online.
 
+<!-- assets-info-start -->
+| Name             | Timeline        | Size        |
+| ---              | ---             | ---         |
+| [observablehq-idle_after.json](https:\raw.githubusercontent.com\push-based\observable-hq--audit\master\raw\observablehq-idle_after.json) | [timeline-view](https://chromedevtools.github.io/timeline-viewer/?https://raw.githubusercontent.com/push-based/observable-hq--audit/master/?loadTimelineFromURL=raw\observablehq-idle_after.json) | 24.16 MB|
+| [observablehq-idle_before.json](https:\raw.githubusercontent.com\push-based\observable-hq--audit\master\raw\observablehq-idle_before.json) | [timeline-view](https://chromedevtools.github.io/timeline-viewer/?https://raw.githubusercontent.com/push-based/observable-hq--audit/master/?loadTimelineFromURL=raw\observablehq-idle_before.json) | 8.6 MB|
+| [observablehq-recalculate_after.json](https:\raw.githubusercontent.com\push-based\observable-hq--audit\master\raw\observablehq-recalculate_after.json) | [timeline-view](https://chromedevtools.github.io/timeline-viewer/?https://raw.githubusercontent.com/push-based/observable-hq--audit/master/?loadTimelineFromURL=raw\observablehq-recalculate_after.json) | 13.37 MB|
+| [observablehq-recalculate_before.json](https:\raw.githubusercontent.com\push-based\observable-hq--audit\master\raw\observablehq-recalculate_before.json) | [timeline-view](https://chromedevtools.github.io/timeline-viewer/?https://raw.githubusercontent.com/push-based/observable-hq--audit/master/?loadTimelineFromURL=raw\observablehq-recalculate_before.json) | 21.61 MB|
+| [observablehq-reDom_after.json](https:\raw.githubusercontent.com\push-based\observable-hq--audit\master\raw\observablehq-reDom_after.json) | [timeline-view](https://chromedevtools.github.io/timeline-viewer/?https://raw.githubusercontent.com/push-based/observable-hq--audit/master/?loadTimelineFromURL=raw\observablehq-reDom_after.json) | 20.48 MB|
+| [observablehq-reDom_before.json](https:\raw.githubusercontent.com\push-based\observable-hq--audit\master\raw\observablehq-reDom_before.json) | [timeline-view](https://chromedevtools.github.io/timeline-viewer/?https://raw.githubusercontent.com/push-based/observable-hq--audit/master/?loadTimelineFromURL=raw\observablehq-reDom_before.json) | 16.53 MB|
+| [observablehq-scroll_after.json](https:\raw.githubusercontent.com\push-based\observable-hq--audit\master\raw\observablehq-scroll_after.json) | [timeline-view](https://chromedevtools.github.io/timeline-viewer/?https://raw.githubusercontent.com/push-based/observable-hq--audit/master/?loadTimelineFromURL=raw\observablehq-scroll_after.json) | 14.62 MB|
+| [observablehq-scroll_before.json](https:\raw.githubusercontent.com\push-based\observable-hq--audit\master\raw\observablehq-scroll_before.json) | [timeline-view](https://chromedevtools.github.io/timeline-viewer/?https://raw.githubusercontent.com/push-based/observable-hq--audit/master/?loadTimelineFromURL=raw\observablehq-scroll_before.json) | 10.81 MB|
+<!-- assets-info-end -->
