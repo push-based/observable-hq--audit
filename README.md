@@ -39,9 +39,7 @@
 
 ---
 
-# TL;DR  
-
-köpijpojpo
+# TL;DR
 
 **Comparison - Filmstrip**  
 ![observable-hq--filmstrip-comparison](https://user-images.githubusercontent.com/10064416/164160130-eff89ca9-d054-4673-bda0-a875eacedc27.PNG)
