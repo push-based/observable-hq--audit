@@ -53,7 +53,8 @@
 **Comparison - Flame charts**
 | Re-apply DOM | Recalculate styles |  
 | -- | -- |
-| ![img-observablehq-redom_comparison](https://user-images.githubusercontent.com/10064416/163671375-02204147-8f75-43d0-8484-b47d7f3abc36.PNG) | ![img-observablehq-recalculate_comparison](https://user-images.githubusercontent.com/10064416/163671372-bfbd8f40-39b2-4b90-b11f-a64e4130cf0e.PNG)   |
+| ![img-observablehq-redom_comparison](https://user-images.githubusercontent.com/10064416/166469237-1aeb5564-087f-4327-b39d-ec1e9e428eae.PNG) | ![img-observablehq-recalculate_comparison](https://user-images.githubusercontent.com/10064416/166469226-4b470b41-9685-46b9-93a3-887e2ac565fd.PNG)
+   |
 
 | Scroll down and up again   | Idle   |  
 | -- | -- |
