@@ -357,7 +357,7 @@ Let's give it a quick try 😁
 
 ```javascript
 const imgs = document.querySelectorAll('img');
-const eager = Array.from(imgs).forEach(i => i.setAttribute('loading', 'lazy); 
+const eager = Array.from(imgs).forEach(i => i.setAttribute('loading', 'lazy'); 
 ```
 
 At pageload `31` images are loaded, after all images are loaded lazy `13` are loaded.
