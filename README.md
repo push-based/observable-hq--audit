@@ -788,3 +788,7 @@ Measurements in comparison
 | [observablehq-scroll_after.json](https:\raw.githubusercontent.com\push-based\observable-hq--audit\master\raw\observablehq-scroll_after.json) | [timeline-view](https://chromedevtools.github.io/timeline-viewer/?https://raw.githubusercontent.com/push-based/observable-hq--audit/master/?loadTimelineFromURL=raw\observablehq-scroll_after.json) | 14.62 MB|
 | [observablehq-scroll_before.json](https:\raw.githubusercontent.com\push-based\observable-hq--audit\master\raw\observablehq-scroll_before.json) | [timeline-view](https://chromedevtools.github.io/timeline-viewer/?https://raw.githubusercontent.com/push-based/observable-hq--audit/master/?loadTimelineFromURL=raw\observablehq-scroll_before.json) | 10.81 MB|
 <!-- assets-info-end -->
+
+---
+
+made with ❤ by [push-based.io](https://www.push-based.io)
